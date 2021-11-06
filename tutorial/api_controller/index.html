@@ -11,21 +11,21 @@
       
       
       
-        <link rel="canonical" href="https://eadwincode.github.io/django-ninja-extra/">
+        <link rel="canonical" href="https://eadwincode.github.io/django-ninja-extra/tutorial/api_controller/">
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
     
     
       
-        <title>Django Ninja Extra</title>
+        <title>APIController - Django Ninja Extra</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.24c991ad.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.24c991ad.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
         
       
     
@@ -40,7 +40,7 @@
     
     
     
-      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
     
       
@@ -61,7 +61,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deeppurple" data-md-color-accent="deeppurple">
   
     
-    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#requirements" class="md-skip">
+        <a href="#apicontroller" class="md-skip">
           Skip to content
         </a>
       
@@ -84,7 +84,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Django Ninja Extra" class="md-header__button md-logo" aria-label="Django Ninja Extra" data-md-component="logo">
+    <a href="../.." title="Django Ninja Extra" class="md-header__button md-logo" aria-label="Django Ninja Extra" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              APIController
             
           </span>
         </div>
@@ -206,7 +206,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Django Ninja Extra" class="md-nav__button md-logo" aria-label="Django Ninja Extra" data-md-component="logo">
+    <a href="../.." title="Django Ninja Extra" class="md-nav__button md-logo" aria-label="Django Ninja Extra" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -236,88 +236,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Index
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         Index
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    Requirements
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    Key Features
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-example" class="md-nav__link">
-    Quick Example
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#interactive-api-docs" class="md-nav__link">
-    Interactive API docs
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-next" class="md-nav__link">
-    What next?
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -328,12 +251,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -356,7 +281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         intro
       </a>
     </li>
@@ -368,11 +293,141 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="tutorial/api_controller/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          APIController
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         APIController
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-properties" class="md-nav__link">
+    Model Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permission_classes" class="md-nav__link">
+    permission_classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auth" class="md-nav__link">
+    auth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    api
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto_import" class="md-nav__link">
+    auto_import
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_routercls-optionalcontrollerrouter" class="md-nav__link">
+    get_router(cls) -&gt; Optional[ControllerRouter]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_path_operationscls-dictstrany" class="md-nav__link">
+    get_path_operations(cls) -&gt; DictStrAny
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_operation_from_route_functioncls-route_function-routefunction" class="md-nav__link">
+    add_operation_from_route_function(cls, route_function: RouteFunction)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_api_operationcls" class="md-nav__link">
+    add_api_operation(cls, ...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_route_functionscls-iteratorroutefunction" class="md-nav__link">
+    get_route_functions(cls) -&gt; Iterator[RouteFunction]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_permissionsself" class="md-nav__link">
+    get_permissions(self)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check_permissionsself" class="md-nav__link">
+    check_permissions(self)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check_object_permissionsself-obj-any" class="md-nav__link">
+    check_object_permissions(self, obj: Any)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -384,7 +439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial/api_controller_route/" class="md-nav__link">
+      <a href="../api_controller_route/" class="md-nav__link">
         Controller Routes
       </a>
     </li>
@@ -398,7 +453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial/api_controller_permission/" class="md-nav__link">
+      <a href="../api_controller_permission/" class="md-nav__link">
         Controller Permissions
       </a>
     </li>
@@ -412,7 +467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial/api_controller_router/" class="md-nav__link">
+      <a href="../api_controller_router/" class="md-nav__link">
         Controller Router
       </a>
     </li>
@@ -426,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial/authentication/" class="md-nav__link">
+      <a href="../authentication/" class="md-nav__link">
         Authentication
       </a>
     </li>
@@ -440,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial/body_request/" class="md-nav__link">
+      <a href="../body_request/" class="md-nav__link">
         Body Request
       </a>
     </li>
@@ -454,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial/versioning/" class="md-nav__link">
+      <a href="../versioning/" class="md-nav__link">
         Versoning
       </a>
     </li>
@@ -468,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial/pagination/" class="md-nav__link">
+      <a href="../pagination/" class="md-nav__link">
         Pagination
       </a>
     </li>
@@ -482,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial/custom_exception/" class="md-nav__link">
+      <a href="../custom_exception/" class="md-nav__link">
         Exception
       </a>
     </li>
@@ -504,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="service_module_injector/" class="md-nav__link">
+      <a href="../../service_module_injector/" class="md-nav__link">
         Service Module and Injector
       </a>
     </li>
@@ -527,6 +582,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -535,50 +592,99 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    Requirements
+  <a href="#model-properties" class="md-nav__link">
+    Model Properties
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    Key Features
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-example" class="md-nav__link">
-    Quick Example
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Example">
+    <nav class="md-nav" aria-label="Model Properties">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#interactive-api-docs" class="md-nav__link">
-    Interactive API docs
+  <a href="#permission_classes" class="md-nav__link">
+    permission_classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auth" class="md-nav__link">
+    auth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    api
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto_import" class="md-nav__link">
+    auto_import
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_routercls-optionalcontrollerrouter" class="md-nav__link">
+    get_router(cls) -&gt; Optional[ControllerRouter]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_path_operationscls-dictstrany" class="md-nav__link">
+    get_path_operations(cls) -&gt; DictStrAny
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_operation_from_route_functioncls-route_function-routefunction" class="md-nav__link">
+    add_operation_from_route_function(cls, route_function: RouteFunction)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_api_operationcls" class="md-nav__link">
+    add_api_operation(cls, ...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_route_functionscls-iteratorroutefunction" class="md-nav__link">
+    get_route_functions(cls) -&gt; Iterator[RouteFunction]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_permissionsself" class="md-nav__link">
+    get_permissions(self)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check_permissionsself" class="md-nav__link">
+    check_permissions(self)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check_object_permissionsself-obj-any" class="md-nav__link">
+    check_object_permissions(self, obj: Any)
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-next" class="md-nav__link">
-    What next?
-  </a>
   
 </li>
       
@@ -595,91 +701,39 @@
               
                 
                 
-                  <h1>Index</h1>
-                
-                <p><img alt="Test" src="https://github.com/eadwinCode/django-ninja-jwt/workflows/Test/badge.svg" />
-<a href="https://badge.fury.io/py/django-ninja-jwt"><img alt="PyPI version" src="https://badge.fury.io/py/django-ninja-extra.svg" /></a>
-<a href="https://pypi.python.org/pypi/django-ninja-extra"><img alt="PyPI version" src="https://img.shields.io/pypi/v/django-ninja-extra.svg" /></a>
-<a href="https://pypi.python.org/pypi/django-ninja-extra"><img alt="PyPI version" src="https://img.shields.io/pypi/pyversions/django-ninja-extra.svg" /></a>
-<a href="https://pypi.python.org/pypi/django-ninja-extra"><img alt="PyPI version" src="https://img.shields.io/pypi/djversions/django-ninja-extra.svg" /></a></p>
-<p><strong>Django Ninja Extra</strong> is a utility library built on top of <a href="https://django-ninja.rest-framework.com"><strong>Django Ninja</strong></a> for building and setting up APIs at incredible speed and performance. </p>
-<h3 id="requirements">Requirements</h3>
-<ul>
-<li>Python &gt;= 3.6</li>
-<li>django &gt;= 2.1 </li>
-<li>pydantic &gt;= 1.6 </li>
-<li>Django-Ninja &gt;= 0.16.1</li>
-</ul>
-<hr />
-<h3 id="key-features">Key Features</h3>
-<p>All Django-Ninja features are fully supported plus others below:</p>
-<ul>
-<li><strong>Class Based</strong>: Design your APIs in a class based fashion.</li>
-<li><strong>Permissions</strong>: Protect endpoint(s) at ease, specific or general</li>
-<li><strong>Dependency Injection</strong>: Controller classes supports dependency injection with python <a href="https://injector.readthedocs.io/en/latest/"><strong>Injector</strong> </a> or <a href="https://github.com/blubber/django_injector"><strong>django_injector</strong></a></li>
-</ul>
-<h2 id="installation">Installation</h2>
-<pre><code>pip install django-ninja-extra
+                <h1 id="apicontroller">APIController</h1>
+<p>APIController is a borrowed term from C# environment. Controller is concept from MVC. 
+Although Django is not an MVC framework, but we can mimic the concept generally.</p>
+<p>The APIController is an abstract class model that allows you to expose some class instance functions as route functions.
+It also supports dependency injection with <strong>Injector</strong> or <strong>Django injector</strong>.</p>
+<pre><code class="language-python">class APIController(ABC, metaclass=APIControllerModelMetaclass):
+    ...
 </code></pre>
-<p>After installation, add <code>ninja_extra</code> to your <code>INSTALLED_APPS</code></p>
-<pre><code class="language-Python">INSTALLED_APPS = [
-    ...,
-    'ninja_extra',
-]
-</code></pre>
-<h2 id="quick-example">Quick Example</h2>
-<p>In your django project next to urls.py create new <code>api.py</code> file:</p>
-<pre><code class="language-Python">from ninja_extra import NinjaExtraAPI
-from ninja_extra import APIController, route, router
-from ninja_extra.permissions import AllowAny
-
-api = NinjaExtraAPI()
-
-# function based definition
-@api.get(&quot;/add&quot;, tags=['Math'])
-def add(request, a: int, b: int):
-    return {&quot;result&quot;: a + b}
-
-#class based definition
-@router('', tags=['Math'], permissions=[AllowAny])
-class MyController(APIController):
-
-    @route.get('/subtract',)
-    def subtract(self, a: int, b: int):
-        &quot;&quot;&quot;Subtracts a from b&quot;&quot;&quot;
-        return {&quot;result&quot;: a - b}
-
-    @route.get('/divide',)
-    def divide(self, a: int, b: int):
-        &quot;&quot;&quot;Divides a by b&quot;&quot;&quot;
-        return {&quot;result&quot;: a / b}
-
-    @route.get('/multiple',)
-    def multiple(self, a: int, b: int):
-        &quot;&quot;&quot;Multiples a with b&quot;&quot;&quot;
-        return {&quot;result&quot;: a * b}
-
-api.register_controllers(
-    MyController
-)
-</code></pre>
-<p>Now go to <code>urls.py</code> and add the following:</p>
-<pre><code class="language-Python">...
-from .api import api
-
-urlpatterns = [
-    path(&quot;admin/&quot;, admin.site.urls),
-    path(&quot;api/&quot;, api.urls),  # &lt;---------- !
-]
-</code></pre>
-<h3 id="interactive-api-docs">Interactive API docs</h3>
-<p>Now go to <a href="http://127.0.0.1:8000/api/docs" target="_blank">http://127.0.0.1:8000/api/docs </a></p>
-<p>You will see the automatic interactive API documentation (provided by <a href="https://github.com/swagger-api/swagger-ui" target="_blank">Swagger UI</a>):</p>
-<p><img alt="Swagger UI" src="images/ui_swagger_preview_readme.gif" /></p>
-<h2 id="what-next">What next?</h2>
-<ul>
-<li>To support this project, please give star it on Github</li>
-</ul>
+<h2 id="model-properties">Model Properties</h2>
+<h3 id="permission_classes"><code>permission_classes</code></h3>
+<p>List of default permission classes defined in a controller <code>router</code></p>
+<h3 id="auth"><code>auth</code></h3>
+<p>List of default Authentication instances. As described in Django-Ninja <a href="https://django-ninja.rest-framework.com/tutorial/authentication/">Authentication</a>. default: <code>[]</code></p>
+<h3 id="api"><code>api</code></h3>
+<p>Instance of NinjaExtraAPI at runtime. default:<code>None</code></p>
+<h3 id="auto_import"><code>auto_import</code></h3>
+<p>states whether APIController should added to auto_controller import list. default: <code>True</code></p>
+<h3 id="get_routercls-optionalcontrollerrouter"><code>get_router(cls) -&gt; Optional[ControllerRouter]</code></h3>
+<p>return controller to router instance if present and raises Exception is absent.</p>
+<h3 id="get_path_operationscls-dictstrany"><code>get_path_operations(cls) -&gt; DictStrAny</code></h3>
+<p>container <code>dict</code> of route definition which are pass to Django-Ninja at runtime</p>
+<h3 id="add_operation_from_route_functioncls-route_function-routefunction"><code>add_operation_from_route_function(cls, route_function: RouteFunction)</code></h3>
+<p>A method overload for <code>add_api_operation</code> </p>
+<h3 id="add_api_operationcls"><code>add_api_operation(cls, ...)</code></h3>
+<p>Adds APIController route definitions to path operation</p>
+<h3 id="get_route_functionscls-iteratorroutefunction"><code>get_route_functions(cls) -&gt; Iterator[RouteFunction]</code></h3>
+<p>Gets all registered route in an APIController</p>
+<h3 id="get_permissionsself"><code>get_permissions(self)</code></h3>
+<p>Returns list of <code>permission_classes</code> instances</p>
+<h3 id="check_permissionsself"><code>check_permissions(self)</code></h3>
+<p>Check permission when route function is invoked</p>
+<h3 id="check_object_permissionsself-obj-any"><code>check_object_permissions(self, obj: Any)</code></h3>
+<p>Checks object permissions. This is not automated. However, when called, it triggers all <code>permission_classes</code> <code>has_object_permission</code> function, just like in DRF</p>
                 
               
               
@@ -698,15 +752,30 @@ urlpatterns = [
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: intro" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              intro
+            </div>
+          </div>
+        </a>
+      
       
         
-        <a href="tutorial/" class="md-footer__link md-footer__link--next" aria-label="Next: intro" rel="next">
+        <a href="../api_controller_route/" class="md-footer__link md-footer__link--next" aria-label="Next: Controller Routes" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              intro
+              Controller Routes
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -737,10 +806,10 @@ urlpatterns = [
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.bc35569b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.bc35569b.min.js"></script>
       
     
   </body>

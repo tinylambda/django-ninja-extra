@@ -11,19 +11,21 @@
       
       
       
-      <link rel="icon" href="/django-ninja-extra/assets/images/favicon.png">
+        <link rel="canonical" href="https://eadwincode.github.io/django-ninja-extra/service_module_injector/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
     
     
       
-        <title>Django Ninja Extra</title>
+        <title>Service Module and Injector - Django Ninja Extra</title>
       
     
     
-      <link rel="stylesheet" href="/django-ninja-extra/assets/stylesheets/main.24c991ad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
       
         
-        <link rel="stylesheet" href="/django-ninja-extra/assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
         
       
     
@@ -38,7 +40,7 @@
     
     
     
-      <link rel="stylesheet" href="/django-ninja-extra/assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
     
       
@@ -59,7 +61,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deeppurple" data-md-color-accent="deeppurple">
   
     
-    <script>function __prefix(e){return new URL("/django-ninja-extra/",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -67,6 +69,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#injector" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -77,7 +84,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/django-ninja-extra/." title="Django Ninja Extra" class="md-header__button md-logo" aria-label="Django Ninja Extra" data-md-component="logo">
+    <a href=".." title="Django Ninja Extra" class="md-header__button md-logo" aria-label="Django Ninja Extra" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -96,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Service Module and Injector
             
           </span>
         </div>
@@ -199,7 +206,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/django-ninja-extra/." title="Django Ninja Extra" class="md-nav__button md-logo" aria-label="Django Ninja Extra" data-md-component="logo">
+    <a href=".." title="Django Ninja Extra" class="md-nav__button md-logo" aria-label="Django Ninja Extra" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -231,7 +238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/django-ninja-extra/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         Index
       </a>
     </li>
@@ -272,7 +279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/django-ninja-extra/tutorial/" class="md-nav__link">
+      <a href="../tutorial/" class="md-nav__link">
         intro
       </a>
     </li>
@@ -286,7 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/django-ninja-extra/tutorial/api_controller/" class="md-nav__link">
+      <a href="../tutorial/api_controller/" class="md-nav__link">
         APIController
       </a>
     </li>
@@ -300,7 +307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/django-ninja-extra/tutorial/api_controller_route/" class="md-nav__link">
+      <a href="../tutorial/api_controller_route/" class="md-nav__link">
         Controller Routes
       </a>
     </li>
@@ -314,7 +321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/django-ninja-extra/tutorial/api_controller_permission/" class="md-nav__link">
+      <a href="../tutorial/api_controller_permission/" class="md-nav__link">
         Controller Permissions
       </a>
     </li>
@@ -328,7 +335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/django-ninja-extra/tutorial/api_controller_router/" class="md-nav__link">
+      <a href="../tutorial/api_controller_router/" class="md-nav__link">
         Controller Router
       </a>
     </li>
@@ -342,7 +349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/django-ninja-extra/tutorial/authentication/" class="md-nav__link">
+      <a href="../tutorial/authentication/" class="md-nav__link">
         Authentication
       </a>
     </li>
@@ -356,7 +363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/django-ninja-extra/tutorial/body_request/" class="md-nav__link">
+      <a href="../tutorial/body_request/" class="md-nav__link">
         Body Request
       </a>
     </li>
@@ -370,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/django-ninja-extra/tutorial/versioning/" class="md-nav__link">
+      <a href="../tutorial/versioning/" class="md-nav__link">
         Versoning
       </a>
     </li>
@@ -384,7 +391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/django-ninja-extra/tutorial/pagination/" class="md-nav__link">
+      <a href="../tutorial/pagination/" class="md-nav__link">
         Pagination
       </a>
     </li>
@@ -398,7 +405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/django-ninja-extra/tutorial/custom_exception/" class="md-nav__link">
+      <a href="../tutorial/custom_exception/" class="md-nav__link">
         Exception
       </a>
     </li>
@@ -418,11 +425,54 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/django-ninja-extra/service_module_injector/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Service Module and Injector
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Service Module and Injector
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#injector" class="md-nav__link">
+    Injector
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-registration" class="md-nav__link">
+    Module Registration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -434,11 +484,162 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#injector" class="md-nav__link">
+    Injector
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-registration" class="md-nav__link">
+    Module Registration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+                
+                  <h1>Service Module and Injector</h1>
+                
+                <h2 id="injector">Injector</h2>
+<p><strong>Django Ninja Extra</strong> APIController comes with dependency injector support.
+Dependencies to a APIController can be resolved at constructor level automatically.
+This is possible with python <a href="https://injector.readthedocs.io/en/latest/"><strong>Injector</strong> </a> library. 
+Also, APIController injector works well with <a href="https://github.com/blubber/django_injector"><strong>django_injector</strong></a></p>
+<pre><code class="language-python">from ninja import File
+from ninja.files import UploadedFile
+from ninja_extra import NinjaExtraAPI, APIController, route, router
+
+class BucketFileUploadService:
+    def upload_file_to_s3(self, file, bucket_name=None, acl=&quot;public-read&quot;, file_key=None):
+        pass
+
+    def upload_existing_file_to_s3(
+            self, filepath, file_key, bucket_name=None, acl=&quot;public-read&quot;, delete_file_afterwards=False,
+            clean_up_root_limit=None
+    ):
+        pass
+
+
+@router('/user_profile')
+class UserProfileController(APIController):
+    def __init__(self, upload_service: BucketFileUploadService):
+        self.upload_service = upload_service
+
+    @route.post('/upload')
+    def upload_profile_pic(self, file: UploadedFile = File(...)):
+        self.upload_service.upload_file_to_s3(file=file)
+        return {'message', 'uploaded successfully'}
+
+
+api = NinjaExtraAPI(title='Injector Test')
+api.register_controllers(UserProfileController)
+</code></pre>
+<h2 id="module-registration">Module Registration</h2>
+<p>You can also register an injector module. And Inject the service to the APIController constructor</p>
+<pre><code class="language-python">import logging
+import os
+
+from ninja import File
+from ninja.files import UploadedFile
+from ninja_extra import NinjaExtraAPI, APIController, route, router
+
+from typing import Any, cast
+from django.conf import Settings
+from injector import inject, Module, Binder, singleton
+
+logger = logging.getLogger()
+
+
+class BucketFileUpload:
+    def upload_file_to_s3(self, file, bucket_name=None, acl=&quot;public-read&quot;, file_key=None):
+        raise NotImplementedError()
+
+    def upload_existing_file_to_s3(
+            self, filepath, file_key, bucket_name=None, acl=&quot;public-read&quot;, delete_file_afterwards=False,
+            clean_up_root_limit=None
+    ):
+        raise NotImplementedError()
+
+
+class InMemoryBucketFileUpload(BucketFileUpload):
+    @inject
+    def __init__(self, settings: Settings):
+        logger.info(f&quot;===== Using InMemoryBucketFileUpload =======&quot;)
+        self.settings = cast(Any, settings)
+
+    def upload_file_to_s3(self, file, bucket_name=None, acl=&quot;public-read&quot;, file_key=None):
+        logger.info(
+            f&quot;InMemoryBucketFileUpload ---- &quot;
+            f&quot;upload_file_to_s3(file={file.filename}, bucket_name{bucket_name}, acl={acl}, file_key={file_key})&quot;
+        )
+        if not file_key:
+            return os.path.join(self.settings.UPLOAD_FOLDER, file.filename)
+        return os.path.join(self.settings.BASE_DIR, file_key)
+
+    def upload_existing_file_to_s3(self, filepath, file_key, bucket_name=None, acl=&quot;public-read&quot;,
+                                   delete_file_afterwards=False, clean_up_root_limit=None):
+        logger.info(f&quot;InMemoryBucketFileUpload ---- upload_existing_file_to_s3(&quot;
+                    f&quot;filepath={filepath}, file_key={file_key}, &quot;
+                    f&quot;bucket_name={bucket_name}, acl={acl}, delete_file_afterwards={delete_file_afterwards})&quot;)
+        return filepath
+
+
+class FileServiceModule(Module):
+    def configure(self, binder: Binder) -&gt; None:
+        binder.bind(BucketFileUpload, to=InMemoryBucketFileUpload, scope=singleton)
+
+
+
+@router('/user_profile')
+class UserProfileController(APIController):
+    def __init__(self, upload_service: BucketFileUpload):
+        self.upload_service = upload_service
+
+    @route.post('/upload')
+    def upload_profile_pic(self, file: UploadedFile = File(...)):
+        self.upload_service.upload_file_to_s3(file=file)
+        assert isinstance(self.upload_service, InMemoryBucketFileUpload) # True
+        return {'message', 'uploaded successfully'}
+
+
+api = NinjaExtraAPI(title='Injector Test')
+api.register_controllers(UserProfileController)
+api.register_injector_modules(FileServiceModule)
+</code></pre>
+                
+              
+              
+                
+
 
               
             </article>
@@ -449,6 +650,26 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../tutorial/custom_exception/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Exception" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Exception
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -471,10 +692,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "/django-ninja-extra/", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "/django-ninja-extra/assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
     
     
-      <script src="/django-ninja-extra/assets/javascripts/bundle.bc35569b.min.js"></script>
+      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
       
     
   </body>
