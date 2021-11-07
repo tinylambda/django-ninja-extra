@@ -454,18 +454,12 @@
     permissions
   </a>
   
-    <nav class="md-nav" aria-label="permissions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#async-route-definition" class="md-nav__link">
     Async Route Definition
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -737,18 +731,12 @@
     permissions
   </a>
   
-    <nav class="md-nav" aria-label="permissions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#async-route-definition" class="md-nav__link">
     Async Route Definition
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -764,6 +752,8 @@
             <article class="md-content__inner md-typeset">
               
                 
+                
+                  <h1>Controller Routes</h1>
                 
                 <h2 id="apicontroller-route-decorator">APIController Route Decorator</h2>
 <p>The <code>route</code> class used as a function decorator in APIController class, tells APIController class to expose a particular function as an endpoint.
@@ -788,37 +778,37 @@ The <code>route</code> predefined method that helps create the following operati
  - PATCH
  - GENERIC - for operation combination eg: <code>methods=['POST', 'PATCH']</code></p>
 <h2 id="initialization-parameters">Initialization Parameters</h2>
-<h1 id="path"><code>path</code></h1>
+<h2 id="path"><code>path</code></h2>
 <p>it's a required uniques endpoint path string</p>
-<h1 id="methods"><code>methods</code></h1>
+<h2 id="methods"><code>methods</code></h2>
 <p>it's required a collection of endpoint operational mode eg: <code>['POST', 'PUT']</code></p>
-<h1 id="auth"><code>auth</code></h1>
+<h2 id="auth"><code>auth</code></h2>
 <p>defines endpoint authentication method. default: <code>NOT_SET</code></p>
-<h1 id="response"><code>response</code></h1>
+<h2 id="response"><code>response</code></h2>
 <p>defines <code>dict[status_code, schema]</code> or <code>Schema</code>. It is used validated returned response. default: <code>NOT_SET</code></p>
-<h1 id="operation_id"><code>operation_id</code></h1>
+<h2 id="operation_id"><code>operation_id</code></h2>
 <p>it is an optional unique id that distinguishes <code>operations</code> in path view. default: <code>NOT_SET</code></p>
-<h1 id="summary"><code>summary</code></h1>
+<h2 id="summary"><code>summary</code></h2>
 <p>it is an optional summary that describes your endpoint. default: <code>None</code></p>
-<h1 id="description"><code>description</code></h1>
+<h2 id="description"><code>description</code></h2>
 <p>it is an optional description that describes your endpoint. default: <code>None</code></p>
-<h1 id="tags"><code>tags</code></h1>
+<h2 id="tags"><code>tags</code></h2>
 <p>It is a list of strings useful for endpoint grouping for documentation purpose. default: <code>None</code></p>
-<h1 id="deprecated"><code>deprecated</code></h1>
+<h2 id="deprecated"><code>deprecated</code></h2>
 <p>it is an optional boolean parameter that declares an endpoint deprecated. default: <code>None</code></p>
-<h1 id="by_alias"><code>by_alias</code></h1>
+<h2 id="by_alias"><code>by_alias</code></h2>
 <p>it is an optional parameter that is applied to filter <code>response</code> schema object. default: <code>False</code></p>
-<h1 id="exclude_unset"><code>exclude_unset</code></h1>
+<h2 id="exclude_unset"><code>exclude_unset</code></h2>
 <p>it is an optional parameter that is applied to filter <code>response</code> schema object. default: <code>False</code></p>
-<h1 id="exclude_defaults"><code>exclude_defaults</code></h1>
+<h2 id="exclude_defaults"><code>exclude_defaults</code></h2>
 <p>it is an optional parameter that is applied to filter <code>response</code> schema object. default: <code>False</code></p>
-<h1 id="exclude_none"><code>exclude_none</code></h1>
+<h2 id="exclude_none"><code>exclude_none</code></h2>
 <p>it is an optional parameter that is applied to filter <code>response</code> schema object. default: <code>False</code></p>
-<h1 id="include_in_schema"><code>include_in_schema</code></h1>
+<h2 id="include_in_schema"><code>include_in_schema</code></h2>
 <p>indicates whether an endpoint should appear on the swagger documentation. default: <code>True</code></p>
 <p><code>url_name</code>
 it gives a name to an endpoint which can be resolved using <code>reverse</code> function in django. default: <code>None</code></p>
-<h1 id="permissions"><code>permissions</code></h1>
+<h2 id="permissions"><code>permissions</code></h2>
 <p>defines collection route permissions. default: <code>None</code></p>
 <p>Most of these parameters are what is used in creating and endpoint in Django-Ninja, but it has been abstracted here to be for the same purpose on APIController class</p>
 <h2 id="async-route-definition">Async Route Definition</h2>
