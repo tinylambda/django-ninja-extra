@@ -406,8 +406,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#controller-optionaltypeapicontroller-none" class="md-nav__link">
-    controller: Optional[Type["APIController"]] = None,
+  <a href="#controller-optionaltypeapicontroller" class="md-nav__link">
+    controller: Optional[Type["APIController"]]
   </a>
   
 </li>
@@ -586,8 +586,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#controller-optionaltypeapicontroller-none" class="md-nav__link">
-    controller: Optional[Type["APIController"]] = None,
+  <a href="#controller-optionaltypeapicontroller" class="md-nav__link">
+    controller: Optional[Type["APIController"]]
   </a>
   
 </li>
@@ -617,22 +617,34 @@
               
                 
                 
-                <h1 id="apicontroller-router">APIController Router</h1>
+                <h1 id="apicontroller-router"><strong>APIController Router</strong></h1>
 <p>The <code>ControllerRouter</code> which is <code>router</code> in short form, adapts APIController to Django-Ninja router.
 During <code>api.register_controllers</code> call, the APIController <code>_router</code> is pass to the Django-Ninja for route processing.
 For this reason, APIController class can't be registered without having a <code>ControllerRouter</code> decoration</p>
-<h2 id="initialization-parameters">Initialization Parameters</h2>
-<h3 id="prefix"><code>prefix</code></h3>
+<h2 id="initialization-parameters"><strong>Initialization Parameters</strong></h2>
+<ul>
+<li>
+<h3 id="prefix"><strong><code>prefix</code></strong></h3>
 <p>it is a required parameter that defines extra route prefix for all route functions defined in an APIController class</p>
-<h3 id="auth">auth</h3>
+</li>
+<li>
+<h3 id="auth"><strong><code>auth</code></strong></h3>
 <p>It is an optional parameter that defines global <code>auth</code> for APIController classes. This can be overridden by <code>route</code> <code>auth</code> definition. default: <code>NOT_SET</code></p>
-<h3 id="tags">tags</h3>
+</li>
+<li>
+<h3 id="tags"><strong><code>tags</code></strong></h3>
 <p>It is an optional parameter that defines global <code>tags</code> for APIController classes. This can be overridden by <code>route</code> <code>tags</code> definition. default: <code>None</code></p>
-<h3 id="permissions">permissions</h3>
+</li>
+<li>
+<h3 id="permissions"><strong><code>permissions</code></strong></h3>
 <p>It is an optional parameter that defines global <code>permissions</code> APIController classes. This can be overridden by <code>route</code> <code>permissions</code> definition. default: <code>None</code></p>
-<h3 id="controller-optionaltypeapicontroller-none">controller: Optional[Type["APIController"]] = None,</h3>
+</li>
+<li>
+<h3 id="controller-optionaltypeapicontroller"><strong><code>controller: Optional[Type["APIController"]]</code></strong></h3>
 <p>It is APIController class decorated</p>
-<h2 id="quick-usage">Quick Usage</h2>
+</li>
+</ul>
+<h2 id="quick-usage"><strong>Quick Usage</strong></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja.constants</span> <span class="kn">import</span> <span class="n">NOT_SET</span>
 <span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">router</span><span class="p">,</span> <span class="n">NinjaExtraAPI</span>
 

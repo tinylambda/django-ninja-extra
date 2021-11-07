@@ -563,10 +563,10 @@
               
                 
                 
-                <h1 id="tutorial-reference">Tutorial / Reference</h1>
+                <h1 id="tutorial-reference"><strong>Tutorial / Reference</strong></h1>
 <p>This tutorial shows you how to use <strong>Django Ninja Extra</strong> with most of its features. 
 And most especially assumes you know how to use <strong>Django Ninja</strong></p>
-<h2 id="installation">Installation</h2>
+<h2 id="installation"><strong>Installation</strong></h2>
 <div class="highlight"><pre><span></span><code>pip install django-ninja-extra
 </code></pre></div>
 <p>After installation, add <code>ninja_extra</code> to your <code>INSTALLED_APPS</code></p>
@@ -575,12 +575,12 @@ And most especially assumes you know how to use <strong>Django Ninja</strong></p
     <span class="s1">&#39;ninja_extra&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </code></pre></div>
-<h2 id="create-a-django-project">Create a Django project</h2>
+<h2 id="create-a-django-project"><strong>Create a Django project</strong></h2>
 <p>(If you already have an existing Django project, skip to the next step).</p>
 <p>Start a new Django project (or use an existing one).</p>
 <div class="highlight"><pre><span></span><code>django-admin startproject myproject
 </code></pre></div>
-<h2 id="first-steps">First steps</h2>
+<h2 id="first-steps"><strong>First steps</strong></h2>
 <p>Let's create a module for our API.  Create an <strong>api.py</strong> file in the same directory location as <strong>urls.py</strong>:</p>
 <p><code>api.py</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">router</span>
@@ -601,7 +601,7 @@ And most especially assumes you know how to use <strong>Django Ninja</strong></p
 <span class="hll">    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;api/&quot;</span><span class="p">,</span> <span class="n">api</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
 </span><span class="p">]</span>
 </code></pre></div>
-<h2 id="defining-operation-methods">Defining operation methods</h2>
+<h2 id="defining-operation-methods"><strong>Defining operation methods</strong></h2>
 <p>"Operation" can be one of the HTTP "methods":</p>
 <ul>
 <li>GET</li>

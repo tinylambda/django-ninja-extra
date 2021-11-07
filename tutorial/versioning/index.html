@@ -535,11 +535,11 @@
               
                 
                 
-                <h1 id="versioning">Versioning</h1>
-<h2 id="different-api-version-numbers">Different API version numbers</h2>
+                <h1 id="versioning"><strong>Versioning</strong></h1>
+<h2 id="different-api-version-numbers"><strong>Different API version numbers</strong></h2>
 <p>With <strong>Django Ninja Extra</strong> it's very much easy to run multiple API versions from a single Django project.</p>
 <p>All you have to do is create two or more NinjaAPI instances with different <code>version</code> arguments:</p>
-<p><strong>api_v1.py</strong>:</p>
+<p><strong><code>api_v1.py</code></strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
 
 <span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
@@ -587,7 +587,7 @@
 <li>http://127.0.0.1/api/<strong>v1</strong>/docs</li>
 <li>http://127.0.0.1/api/<strong>v2</strong>/docs</li>
 </ul>
-<h2 id="different-business-logic">Different business logic</h2>
+<h2 id="different-business-logic"><strong>Different business logic</strong></h2>
 <p>In the same way, you can define a different API for different components or areas:</p>
 <div class="highlight"><pre><span></span><code><span class="o">...</span>
 

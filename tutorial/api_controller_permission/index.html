@@ -549,7 +549,7 @@
               
                 
                 
-                <h1 id="apicontroller-permissions">APIController Permissions</h1>
+                <h1 id="apicontroller-permissions"><strong>APIController Permissions</strong></h1>
 <p>The concept of these permission system came from Django <a href="https://www.django-rest-framework.org/api-guide/permissions/">DRF</a>.</p>
 <p>Permission checks are always run at the very start of the route function, 
 before any other code is allowed to proceed. 
@@ -565,10 +565,10 @@ This corresponds to the <code>IsAuthenticated</code> class in <strong>Django Nin
 allow full access to authenticated users, 
 but allow read-only access to unauthenticated users. 
 This corresponds to the <code>IsAuthenticatedOrReadOnly</code> class in <strong>Django Ninja Extra</strong>.</p>
-<h3 id="limitations-of-object-level-permissions">Limitations of object level permissions</h3>
+<h3 id="limitations-of-object-level-permissions"><strong>Limitations of object level permissions</strong></h3>
 <p>During route function call, we can only <code>has_permission</code> in permissions list are called automatic. 
 But since we don't have the object, we can't invoke <code>has_object_permission</code>. It has to be done manually</p>
-<h2 id="custom-permissions">Custom permissions</h2>
+<h2 id="custom-permissions"><strong>Custom permissions</strong></h2>
 <p>To implement a custom permission, override <code>BasePermission</code> and implement either, or both, of the following methods:</p>
 <div class="codehilite"><pre><span></span><code><span class="na">.has_permission</span><span class="p">(</span><span class="no">self</span><span class="p">,</span> <span class="no">request</span><span class="p">:</span> <span class="no">HttpRequest</span><span class="p">,</span> <span class="no">controller</span><span class="p">:</span> <span class="s">&quot;APIController&quot;</span><span class="p">)</span>
 <span class="na">.has_object_permission</span><span class="p">(</span><span class="no">self</span><span class="p">,</span> <span class="no">request</span><span class="p">:</span> <span class="no">HttpRequest</span><span class="p">,</span> <span class="no">controller</span><span class="p">:</span> <span class="s">&quot;APIController&quot;</span><span class="p">,</span> <span class="no">obj</span><span class="p">:</span> <span class="no">Any</span><span class="p">)</span>
@@ -587,7 +587,7 @@ But since we don't have the object, we can't invoke <code>has_object_permission<
     <span class="k">def</span> <span class="nf">must_be_authenticated</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">says</span><span class="o">=</span><span class="n">word</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="permissions-supported-operands">Permissions Supported Operands</h2>
+<h2 id="permissions-supported-operands"><strong>Permissions Supported Operands</strong></h2>
 <ul>
 <li>&amp; (and) eg: <code>permissions.IsAuthenticated &amp; ReadOnly</code></li>
 <li>| (or) eg: <code>permissions.IsAuthenticated | ReadOnly</code></li>

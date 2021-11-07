@@ -771,7 +771,7 @@
               
                 
                 
-                <h1 id="apicontroller-route-decorator">APIController Route Decorator</h1>
+                <h1 id="apicontroller-route-decorator"><strong>APIController Route Decorator</strong></h1>
 <p>The <code>route</code> class used as a function decorator in APIController class, tells APIController class to expose a particular function as an endpoint.
 <code>route</code> decorator is like <code>router</code> class in Django-Ninja but the behaviour is different. 
 Its main purpose is to define <code>route</code> functions in APIController classes.</p>
@@ -794,40 +794,74 @@ The <code>route</code> predefined method that helps create the following operati
  - PATCH
  - GENERIC - for operation combination eg: <code>methods=['POST', 'PATCH']</code></p>
 <h2 id="initialization-parameters"><strong>Initialization Parameters</strong></h2>
-<h3 id="path"><code>path</code></h3>
+<ul>
+<li>
+<h3 id="path"><strong><code>path</code></strong></h3>
 <p>it's a required uniques endpoint path string</p>
-<h3 id="methods"><code>methods</code></h3>
+</li>
+<li>
+<h3 id="methods"><strong><code>methods</code></strong></h3>
 <p>it's required a collection of endpoint operational mode eg: <code>['POST', 'PUT']</code></p>
-<h3 id="auth"><code>auth</code></h3>
+</li>
+<li>
+<h3 id="auth"><strong><code>auth</code></strong></h3>
 <p>defines endpoint authentication method. default: <code>NOT_SET</code></p>
-<h3 id="response"><code>response</code></h3>
+</li>
+<li>
+<h3 id="response"><strong><code>response</code></strong></h3>
 <p>defines <code>dict[status_code, schema]</code> or <code>Schema</code>. It is used validated returned response. default: <code>NOT_SET</code></p>
-<h3 id="operation_id"><code>operation_id</code></h3>
+</li>
+<li>
+<h3 id="operation_id"><strong><code>operation_id</code></strong></h3>
 <p>it is an optional unique id that distinguishes <code>operations</code> in path view. default: <code>NOT_SET</code></p>
-<h3 id="summary"><code>summary</code></h3>
+</li>
+<li>
+<h3 id="summary"><strong><code>summary</code></strong></h3>
 <p>it is an optional summary that describes your endpoint. default: <code>None</code></p>
-<h3 id="description"><code>description</code></h3>
+</li>
+<li>
+<h3 id="description"><strong><code>description</code></strong></h3>
 <p>it is an optional description that describes your endpoint. default: <code>None</code></p>
-<h3 id="tags"><code>tags</code></h3>
+</li>
+<li>
+<h3 id="tags"><strong><code>tags</code></strong></h3>
 <p>It is a list of strings useful for endpoint grouping for documentation purpose. default: <code>None</code></p>
-<h3 id="deprecated"><code>deprecated</code></h3>
+</li>
+<li>
+<h3 id="deprecated"><strong><code>deprecated</code></strong></h3>
 <p>it is an optional boolean parameter that declares an endpoint deprecated. default: <code>None</code></p>
-<h3 id="by_alias"><code>by_alias</code></h3>
+</li>
+<li>
+<h3 id="by_alias"><strong><code>by_alias</code></strong></h3>
 <p>it is an optional parameter that is applied to filter <code>response</code> schema object. default: <code>False</code></p>
-<h3 id="exclude_unset"><code>exclude_unset</code></h3>
+</li>
+<li>
+<h3 id="exclude_unset"><strong><code>exclude_unset</code></strong></h3>
 <p>it is an optional parameter that is applied to filter <code>response</code> schema object. default: <code>False</code></p>
-<h3 id="exclude_defaults"><code>exclude_defaults</code></h3>
+</li>
+<li>
+<h3 id="exclude_defaults"><strong><code>exclude_defaults</code></strong></h3>
 <p>it is an optional parameter that is applied to filter <code>response</code> schema object. default: <code>False</code></p>
-<h3 id="exclude_none"><code>exclude_none</code></h3>
+</li>
+<li>
+<h3 id="exclude_none"><strong><code>exclude_none</code></strong></h3>
 <p>it is an optional parameter that is applied to filter <code>response</code> schema object. default: <code>False</code></p>
-<h3 id="include_in_schema"><code>include_in_schema</code></h3>
+</li>
+<li>
+<h3 id="include_in_schema"><strong><code>include_in_schema</code></strong></h3>
 <p>indicates whether an endpoint should appear on the swagger documentation. default: <code>True</code></p>
-<h3 id="url_name"><code>url_name</code></h3>
+</li>
+<li>
+<h3 id="url_name"><strong><code>url_name</code></strong></h3>
 <p>it gives a name to an endpoint which can be resolved using <code>reverse</code> function in django. default: <code>None</code></p>
-<h3 id="permissions"><code>permissions</code></h3>
+</li>
+<li>
+<h3 id="permissions"><strong><code>permissions</code></strong></h3>
 <p>defines collection route permissions. default: <code>None</code></p>
+</li>
+</ul>
 <p>Most of these parameters are what is used in creating and endpoint in Django-Ninja, but it has been abstracted here to be for the same purpose on APIController class</p>
-<h2 id="async-route-definition">Async Route Definition</h2>
+<h2 id="async-route-definition"><strong>Async Route Definition</strong></h2>
 <p><strong>Django-Ninja-Extra</strong> <code>route</code> class also supports async endpoint definition.
 This is only available on Django &gt; 3.0
 For Example</p>
