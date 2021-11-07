@@ -666,12 +666,12 @@ After installation, add <code>ninja_extra</code> to your <code>INSTALLED_APPS</c
 <p>Now go to <code>urls.py</code> and add the following:</p>
 <div class="highlight"><pre><span></span><code><span class="o">...</span>
 <span class="kn">from</span> <span class="nn">.api</span> <span class="kn">import</span> <span class="n">api</span>
-<span class="hll">
-</span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">path</span><span class="p">(</span><span class="s2">&quot;admin/&quot;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
     <span class="n">path</span><span class="p">(</span><span class="s2">&quot;api/&quot;</span><span class="p">,</span> <span class="n">api</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>  <span class="c1"># &lt;---------- !</span>
-<span class="hll"><span class="p">]</span>
-</span></code></pre></div>
+<span class="p">]</span>
+</code></pre></div>
 <h3 id="interactive-api-docs">Interactive API docs</h3>
 <p>Now go to <a href="http://127.0.0.1:8000/api/docs" target="_blank">http://127.0.0.1:8000/api/docs </a></p>
 <p>You will see the automatic interactive API documentation (provided by <a href="https://github.com/swagger-api/swagger-ui" target="_blank">Swagger UI</a>):</p>
