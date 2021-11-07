@@ -774,7 +774,7 @@
                 <h1 id="apicontroller-route-decorator"><strong>APIController Route Decorator</strong></h1>
 <p>The <code>route</code> class used as a function decorator in APIController class, tells APIController class to expose a particular function as an endpoint.
 <code>route</code> decorator is like <code>router</code> class in Django-Ninja but the behaviour is different. 
-Its main purpose is to define <code>route</code> functions in APIController classes.</p>
+And they can't be used interchangeably.</p>
 <p>For example
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">route</span><span class="p">,</span> <span class="n">APIController</span>
 <span class="kn">from</span> <span class="nn">ninja_extra.controllers</span> <span class="kn">import</span> <span class="n">RouteFunction</span>
@@ -787,12 +787,12 @@ Its main purpose is to define <code>route</code> functions in APIController clas
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">MyController</span><span class="o">.</span><span class="n">test</span><span class="p">,</span> <span class="n">RouteFunction</span><span class="p">)</span> <span class="c1"># true</span>
 </code></pre></div>
 The <code>route</code> predefined method that helps create the following operations
- - GET
- - POST
- - PUT
- - DELETE
- - PATCH
- - GENERIC - for operation combination eg: <code>methods=['POST', 'PATCH']</code></p>
+- GET
+- POST
+- PUT
+- DELETE
+- PATCH
+- GENERIC - for operation combination eg: <code>methods=['POST', 'PATCH']</code></p>
 <h2 id="initialization-parameters"><strong>Initialization Parameters</strong></h2>
 <ul>
 <li>
