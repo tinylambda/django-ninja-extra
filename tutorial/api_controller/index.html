@@ -710,30 +710,56 @@ It also supports dependency injection with <strong>Injector</strong> or <strong>
     <span class="o">...</span>
 </code></pre></div>
 <h2 id="model-properties">Model Properties</h2>
+<ul>
+<li>
 <h3 id="permission_classes"><code>permission_classes</code></h3>
 <p>List of default permission classes defined in a controller <code>router</code></p>
+</li>
+<li>
 <h3 id="auth"><code>auth</code></h3>
 <p>List of default Authentication instances. As described in Django-Ninja <a href="https://django-ninja.rest-framework.com/tutorial/authentication/">Authentication</a>. default: <code>[]</code></p>
+</li>
+<li>
 <h3 id="api"><code>api</code></h3>
 <p>Instance of NinjaExtraAPI at runtime. default:<code>None</code></p>
+</li>
+<li>
 <h3 id="auto_import"><code>auto_import</code></h3>
 <p>states whether APIController should added to auto_controller import list. default: <code>True</code></p>
+</li>
+<li>
 <h3 id="get_routercls"><code>get_router(cls)</code></h3>
 <p>return controller to router instance if present and raises Exception is absent.</p>
+</li>
+<li>
 <h3 id="get_path_operationscls"><code>get_path_operations(cls)</code></h3>
 <p>container <code>dict</code> of route definition which are pass to Django-Ninja at runtime</p>
+</li>
+<li>
 <h3 id="add_operation_from_route_functioncls-route_function-routefunction"><code>add_operation_from_route_function(cls, route_function: RouteFunction)</code></h3>
 <p>A method overload for <code>add_api_operation</code> </p>
+</li>
+<li>
 <h3 id="add_api_operationcls"><code>add_api_operation(cls, ...)</code></h3>
 <p>Adds APIController route definitions to path operation</p>
+</li>
+<li>
 <h3 id="get_route_functionscls"><code>get_route_functions(cls)</code></h3>
 <p>Gets all registered route in an APIController</p>
+</li>
+<li>
 <h3 id="get_permissionsself"><code>get_permissions(self)</code></h3>
 <p>Returns list of <code>permission_classes</code> instances</p>
+</li>
+<li>
 <h3 id="check_permissionsself"><code>check_permissions(self)</code></h3>
 <p>Check permission when route function is invoked</p>
+</li>
+<li>
 <h3 id="check_object_permissionsself-obj-any"><code>check_object_permissions(self, obj: Any)</code></h3>
 <p>Checks object permissions. This is not automated. However, when called, it triggers all <code>permission_classes</code> <code>has_object_permission</code> function, just like in DRF</p>
+</li>
+</ul>
                 
               
               
