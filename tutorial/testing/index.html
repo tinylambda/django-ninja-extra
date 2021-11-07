@@ -11,21 +11,21 @@
       
       
       
-        <link rel="canonical" href="https://eadwincode.github.io/django-ninja-extra/custom_exception/">
+        <link rel="canonical" href="https://eadwincode.github.io/django-ninja-extra/tutorial/testing/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
     
     
       
-        <title>Exception - Django Ninja Extra</title>
+        <title>Testing - Django Ninja Extra</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.24c991ad.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
         
       
     
@@ -40,7 +40,7 @@
     
     
     
-      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
     
       
@@ -61,7 +61,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deeppurple" data-md-color-accent="deeppurple">
   
     
-    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#custom-exception" class="md-skip">
+        <a href="#testing-apicontroller" class="md-skip">
           Skip to content
         </a>
       
@@ -84,7 +84,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Django Ninja Extra" class="md-header__button md-logo" aria-label="Django Ninja Extra" data-md-component="logo">
+    <a href="../.." title="Django Ninja Extra" class="md-header__button md-logo" aria-label="Django Ninja Extra" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exception
+              Testing
             
           </span>
         </div>
@@ -206,7 +206,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Django Ninja Extra" class="md-nav__button md-logo" aria-label="Django Ninja Extra" data-md-component="logo">
+    <a href="../.." title="Django Ninja Extra" class="md-nav__button md-logo" aria-label="Django Ninja Extra" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -238,7 +238,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Index
       </a>
     </li>
@@ -251,12 +251,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -279,7 +281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         intro
       </a>
     </li>
@@ -293,7 +295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/api_controller/" class="md-nav__link">
+      <a href="../api_controller/" class="md-nav__link">
         APIController
       </a>
     </li>
@@ -307,7 +309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/api_controller_route/" class="md-nav__link">
+      <a href="../api_controller_route/" class="md-nav__link">
         Controller Routes
       </a>
     </li>
@@ -321,7 +323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/api_controller_permission/" class="md-nav__link">
+      <a href="../api_controller_permission/" class="md-nav__link">
         Controller Permissions
       </a>
     </li>
@@ -335,7 +337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/api_controller_router/" class="md-nav__link">
+      <a href="../api_controller_router/" class="md-nav__link">
         Controller Router
       </a>
     </li>
@@ -349,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/authentication/" class="md-nav__link">
+      <a href="../authentication/" class="md-nav__link">
         Authentication
       </a>
     </li>
@@ -363,9 +365,75 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/body_request/" class="md-nav__link">
+      <a href="../body_request/" class="md-nav__link">
         Body Request
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioning/" class="md-nav__link">
+        Versoning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pagination/" class="md-nav__link">
+        Pagination
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom_exception/" class="md-nav__link">
+        Exception
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Testing
+      </a>
+      
     </li>
   
 
@@ -385,62 +453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../versioning/" class="md-nav__link">
-        Versoning
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pagination/" class="md-nav__link">
-        Pagination
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Exception
-      </a>
-      
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../service_module_injector/" class="md-nav__link">
+      <a href="../../service_module_injector/" class="md-nav__link">
         Dependency Injection
       </a>
     </li>
@@ -455,23 +468,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../ninja_schema/" class="md-nav__link">
+      <a href="../../ninja_schema/" class="md-nav__link">
         Ninja Schema
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../testing/" class="md-nav__link">
-        Testing
       </a>
     </li>
   
@@ -507,31 +505,54 @@
               
                 
                 
-                <h1 id="custom-exception"><strong>Custom Exception</strong></h1>
-<p>If you are coming from DRF, then you are use to <code>APIException</code> class.</p>
-<p><strong>Django-Ninja-Extra</strong> provides something similar and a has created
-a <code>handler</code> for it used by Django-Ninja to manager custom errors.</p>
-<p><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra.exceptions</span> <span class="kn">import</span> <span class="n">APIException</span>
-<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">status</span>
-<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">router</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">NinjaExtraAPI</span>
+                <h1 id="testing-apicontroller"><strong>Testing APIController</strong></h1>
+<p><strong>Django Ninja Extra</strong> has a TestClient provides a seamless effort in testing your APIControllers.</p>
+<p>However, there are two test clients
+- TestClient: for synchronous route functions
+- TestClientAsync: for asynchronous route functions</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra.testing</span> <span class="kn">import</span> <span class="n">TestClient</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
+<span class="kn">from</span> <span class="nn">ninja_extra.permissions</span> <span class="kn">import</span> <span class="n">AllowAny</span>
 
+<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Math&#39;</span><span class="p">],</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[</span><span class="n">AllowAny</span><span class="p">])</span>
+<span class="k">class</span> <span class="nc">MyMathController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/add&#39;</span><span class="p">,)</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;add a to b&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">}</span>
 
-<span class="k">class</span> <span class="nc">CustomAPIException</span><span class="p">(</span><span class="n">APIException</span><span class="p">):</span>
-    <span class="n">status_code</span> <span class="o">=</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span>
-    <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;UnAuthorized&#39;</span>
+    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/subtract&#39;</span><span class="p">,)</span>
+    <span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Subtracts a from b&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">}</span>
 
+    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/divide&#39;</span><span class="p">,)</span>
+    <span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Divides a by b&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">}</span>
 
-<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;exception&quot;</span><span class="p">])</span>
-<span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
-    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/exception&#39;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">custom_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="n">CustomAPIException</span><span class="p">()</span>
+    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/multiple&#39;</span><span class="p">,)</span>
+    <span class="k">def</span> <span class="nf">multiple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Multiples a with b&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">}</span>
 
+<span class="k">class</span> <span class="nc">TestMyMathController</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">test_add_endpoint_works</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">MyMathController</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/add&#39;</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="s1">&#39;result&#39;</span> <span class="ow">in</span> <span class="n">data</span>
+        <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">8</span>  <span class="c1"># true</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Exception Test&#39;</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">register_controllers</span><span class="p">(</span><span class="n">MyController</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_substraction_enpoint_works</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">MyMathController</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/subtract&#39;</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="k">assert</span> <span class="s1">&#39;result&#39;</span> <span class="ow">in</span> <span class="n">data</span>
+        <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span>  <span class="c1"># true</span>
 </code></pre></div>
-<img alt="Preview" src="../images/custom_exception.gif" /></p>
                 
               
               
@@ -551,7 +572,7 @@ a <code>handler</code> for it used by Django-Ninja to manager custom errors.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../pagination/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Pagination" rel="prev">
+        <a href="../custom_exception/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Exception" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -560,14 +581,14 @@ a <code>handler</code> for it used by Django-Ninja to manager custom errors.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Pagination
+              Exception
             </div>
           </div>
         </a>
       
       
         
-        <a href="../service_module_injector/" class="md-footer__link md-footer__link--next" aria-label="Next: Dependency Injection" rel="next">
+        <a href="../../service_module_injector/" class="md-footer__link md-footer__link--next" aria-label="Next: Dependency Injection" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -604,10 +625,10 @@ a <code>handler</code> for it used by Django-Ninja to manager custom errors.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.bc35569b.min.js"></script>
       
     
   </body>
