@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://eadwincode.github.io/django-ninja-extra/ninja_schema/</loc>
+         <lastmod>2021-11-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://eadwincode.github.io/django-ninja-extra/service_module_injector/</loc>
          <lastmod>2021-11-07</lastmod>
          <changefreq>daily</changefreq>
