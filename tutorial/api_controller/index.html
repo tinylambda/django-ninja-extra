@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#apicontroller" class="md-skip">
+        <a href="#controller" class="md-skip">
           Skip to content
         </a>
       
@@ -301,6 +301,8 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           APIController
@@ -316,19 +318,14 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#apicontroller" class="md-nav__link">
-    APIController
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#model-properties" class="md-nav__link">
@@ -585,19 +582,14 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#apicontroller" class="md-nav__link">
-    APIController
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#model-properties" class="md-nav__link">
@@ -709,9 +701,7 @@
               
                 
                 
-                  <h1>APIController</h1>
-                
-                <h2 id="apicontroller">APIController</h2>
+                <h1 id="controller">Controller</h1>
 <p>APIController is a borrowed term from C# environment. Controller is concept from MVC. 
 Although Django is not an MVC framework, but we can mimic the concept generally.</p>
 <p>The APIController is an abstract class model that allows you to expose some class instance functions as route functions.
@@ -720,29 +710,29 @@ It also supports dependency injection with <strong>Injector</strong> or <strong>
     <span class="o">...</span>
 </code></pre></div>
 <h2 id="model-properties">Model Properties</h2>
-<h4 id="permission_classes"><code>permission_classes</code></h4>
+<h3 id="permission_classes"><code>permission_classes</code></h3>
 <p>List of default permission classes defined in a controller <code>router</code></p>
-<h4 id="auth"><code>auth</code></h4>
+<h3 id="auth"><code>auth</code></h3>
 <p>List of default Authentication instances. As described in Django-Ninja <a href="https://django-ninja.rest-framework.com/tutorial/authentication/">Authentication</a>. default: <code>[]</code></p>
-<h4 id="api"><code>api</code></h4>
+<h3 id="api"><code>api</code></h3>
 <p>Instance of NinjaExtraAPI at runtime. default:<code>None</code></p>
-<h4 id="auto_import"><code>auto_import</code></h4>
+<h3 id="auto_import"><code>auto_import</code></h3>
 <p>states whether APIController should added to auto_controller import list. default: <code>True</code></p>
-<h4 id="get_routercls"><code>get_router(cls)</code></h4>
+<h3 id="get_routercls"><code>get_router(cls)</code></h3>
 <p>return controller to router instance if present and raises Exception is absent.</p>
-<h4 id="get_path_operationscls"><code>get_path_operations(cls)</code></h4>
+<h3 id="get_path_operationscls"><code>get_path_operations(cls)</code></h3>
 <p>container <code>dict</code> of route definition which are pass to Django-Ninja at runtime</p>
-<h4 id="add_operation_from_route_functioncls-route_function-routefunction"><code>add_operation_from_route_function(cls, route_function: RouteFunction)</code></h4>
+<h3 id="add_operation_from_route_functioncls-route_function-routefunction"><code>add_operation_from_route_function(cls, route_function: RouteFunction)</code></h3>
 <p>A method overload for <code>add_api_operation</code> </p>
-<h4 id="add_api_operationcls"><code>add_api_operation(cls, ...)</code></h4>
+<h3 id="add_api_operationcls"><code>add_api_operation(cls, ...)</code></h3>
 <p>Adds APIController route definitions to path operation</p>
-<h4 id="get_route_functionscls"><code>get_route_functions(cls)</code></h4>
+<h3 id="get_route_functionscls"><code>get_route_functions(cls)</code></h3>
 <p>Gets all registered route in an APIController</p>
-<h4 id="get_permissionsself"><code>get_permissions(self)</code></h4>
+<h3 id="get_permissionsself"><code>get_permissions(self)</code></h3>
 <p>Returns list of <code>permission_classes</code> instances</p>
-<h4 id="check_permissionsself"><code>check_permissions(self)</code></h4>
+<h3 id="check_permissionsself"><code>check_permissions(self)</code></h3>
 <p>Check permission when route function is invoked</p>
-<h4 id="check_object_permissionsself-obj-any"><code>check_object_permissions(self, obj: Any)</code></h4>
+<h3 id="check_object_permissionsself-obj-any"><code>check_object_permissions(self, obj: Any)</code></h3>
 <p>Checks object permissions. This is not automated. However, when called, it triggers all <code>permission_classes</code> <code>has_object_permission</code> function, just like in DRF</p>
                 
               
