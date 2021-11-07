@@ -520,10 +520,14 @@
                 
                 
                 <h1 id="dependency-injection">Dependency Injection</h1>
-<p><strong>Django Ninja Extra</strong> APIController comes with dependency injector support.
-Dependencies to a APIController can be resolved at constructor level automatically.
+<p><strong>Django Ninja Extra</strong> APIController comes with dependency injector support.</p>
+<p>Dependencies to a APIController can be resolved at constructor level automatically.
 This is possible with python <a href="https://injector.readthedocs.io/en/latest/"><strong>Injector</strong> </a> library. 
 Also, APIController injector works well with <a href="https://github.com/blubber/django_injector"><strong>django_injector</strong></a></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Read more <a href="https://injector.readthedocs.io/en/latest/"><strong>Python Injector</strong> </a></p>
+</div>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">File</span>
 <span class="kn">from</span> <span class="nn">ninja.files</span> <span class="kn">import</span> <span class="n">UploadedFile</span>
 <span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
