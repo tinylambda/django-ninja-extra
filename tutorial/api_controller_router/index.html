@@ -643,18 +643,18 @@ For this reason, APIController class can't be registered without having a <code>
 <h3 id="controller-optionaltypeapicontroller-none">controller: Optional[Type["APIController"]] = None,</h3>
 <p>It is APIController class decorated</p>
 <h2 id="quick-usage">Quick Usage</h2>
-<pre><code class="language-python">from ninja.constants import NOT_SET
-from ninja_extra import APIController, router, NinjaExtraAPI
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja.constants</span> <span class="kn">import</span> <span class="n">NOT_SET</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">router</span><span class="p">,</span> <span class="n">NinjaExtraAPI</span>
 
-router = router(prefix='', auth=NOT_SET, tags=['someTags'], permissions=[])
+<span class="n">router</span> <span class="o">=</span> <span class="n">router</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">NOT_SET</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;someTags&#39;</span><span class="p">],</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
 
-@router
-class MyRouterController(APIController):
-    '''testing'''
+<span class="nd">@router</span>
+<span class="k">class</span> <span class="nc">MyRouterController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;testing&#39;&#39;&#39;</span>
 
-api = NinjaExtraAPI()
-api.register_controllers(MyRouterController)
-</code></pre>
+<span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">()</span>
+<span class="n">api</span><span class="o">.</span><span class="n">register_controllers</span><span class="p">(</span><span class="n">MyRouterController</span><span class="p">)</span>
+</code></pre></div>
                 
               
               

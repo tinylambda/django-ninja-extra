@@ -569,36 +569,34 @@
 <h2 id="automatic-openapi-schema">Automatic OpenAPI schema</h2>
 <p>Here's an example where the client, in order to authenticate, needs to pass a header:</p>
 <p><code>Authorization: Bearer supersecret</code></p>
-<pre><code class="language-Python">from ninja.security import HttpBearer
-from ninja_extra import APIController, route
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja.security</span> <span class="kn">import</span> <span class="n">HttpBearer</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span>
 
-class AuthBearer(HttpBearer):
-    def authenticate(self, request, token):
-        if token == &quot;supersecret&quot;:
-            return token
+<span class="k">class</span> <span class="nc">AuthBearer</span><span class="p">(</span><span class="n">HttpBearer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">token</span> <span class="o">==</span> <span class="s2">&quot;supersecret&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">token</span>
 
-class MyController(APIController):
-    @route.get(&quot;/bearer&quot;, auth=AuthBearer())
-    def bearer(self):
-        return {&quot;token&quot;: self.request.auth}
-
-</code></pre>
+<span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/bearer&quot;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">AuthBearer</span><span class="p">())</span>
+    <span class="k">def</span> <span class="nf">bearer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">auth</span><span class="p">}</span>
+</code></pre></div>
 <h2 id="global-authentication">Global authentication</h2>
 <p>In case you need to secure <strong>all</strong> route methods defined in <code>api</code> and APIController, you can pass the <code>auth</code> argument to the <code>NinjaExtraAPI</code> constructor:</p>
-<pre><code class="language-Python">from ninja_extra import NinjaExtraAPI
-from ninja.security import HttpBearer
+<p><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span>
+<span class="kn">from</span> <span class="nn">ninja.security</span> <span class="kn">import</span> <span class="n">HttpBearer</span>
 
 
-class GlobalAuth(HttpBearer):
-    def authenticate(self, request, token):
-        if token == &quot;supersecret&quot;:
-            return token
+<span class="k">class</span> <span class="nc">GlobalAuth</span><span class="p">(</span><span class="n">HttpBearer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">token</span> <span class="o">==</span> <span class="s2">&quot;supersecret&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">token</span>
 
 
-api = NinjaExtraAPI(auth=GlobalAuth())
-
-</code></pre>
-<p>Read more on django-ninja <a href="https://django-ninja.rest-framework.com/tutorial/authentication/">authentication</a></p>
+<span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="n">GlobalAuth</span><span class="p">())</span>
+</code></pre></div>
+Read more on django-ninja <a href="https://django-ninja.rest-framework.com/tutorial/authentication/">authentication</a></p>
 <h2 id="jwt-authentication">JWT Authentication</h2>
 <p>if you want to use JWT authentication. See <a href="https://pypi.org/project/django-ninja-jwt/">ninja-jwt</a></p>
                 

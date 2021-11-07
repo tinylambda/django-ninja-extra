@@ -534,107 +534,107 @@
 Dependencies to a APIController can be resolved at constructor level automatically.
 This is possible with python <a href="https://injector.readthedocs.io/en/latest/"><strong>Injector</strong> </a> library. 
 Also, APIController injector works well with <a href="https://github.com/blubber/django_injector"><strong>django_injector</strong></a></p>
-<pre><code class="language-python">from ninja import File
-from ninja.files import UploadedFile
-from ninja_extra import NinjaExtraAPI, APIController, route, router
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">File</span>
+<span class="kn">from</span> <span class="nn">ninja.files</span> <span class="kn">import</span> <span class="n">UploadedFile</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
 
-class BucketFileUploadService:
-    def upload_file_to_s3(self, file, bucket_name=None, acl=&quot;public-read&quot;, file_key=None):
-        pass
+<span class="k">class</span> <span class="nc">BucketFileUploadService</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">upload_file_to_s3</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">bucket_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">acl</span><span class="o">=</span><span class="s2">&quot;public-read&quot;</span><span class="p">,</span> <span class="n">file_key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">pass</span>
 
-    def upload_existing_file_to_s3(
-            self, filepath, file_key, bucket_name=None, acl=&quot;public-read&quot;, delete_file_afterwards=False,
-            clean_up_root_limit=None
-    ):
-        pass
-
-
-@router('/user_profile')
-class UserProfileController(APIController):
-    def __init__(self, upload_service: BucketFileUploadService):
-        self.upload_service = upload_service
-
-    @route.post('/upload')
-    def upload_profile_pic(self, file: UploadedFile = File(...)):
-        self.upload_service.upload_file_to_s3(file=file)
-        return {'message', 'uploaded successfully'}
+    <span class="k">def</span> <span class="nf">upload_existing_file_to_s3</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">file_key</span><span class="p">,</span> <span class="n">bucket_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">acl</span><span class="o">=</span><span class="s2">&quot;public-read&quot;</span><span class="p">,</span> <span class="n">delete_file_afterwards</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">clean_up_root_limit</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="k">pass</span>
 
 
-api = NinjaExtraAPI(title='Injector Test')
-api.register_controllers(UserProfileController)
-</code></pre>
+<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;/user_profile&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">UserProfileController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">upload_service</span><span class="p">:</span> <span class="n">BucketFileUploadService</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upload_service</span> <span class="o">=</span> <span class="n">upload_service</span>
+
+    <span class="nd">@route</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/upload&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">upload_profile_pic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">UploadedFile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upload_service</span><span class="o">.</span><span class="n">upload_file_to_s3</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;uploaded successfully&#39;</span><span class="p">}</span>
+
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Injector Test&#39;</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">register_controllers</span><span class="p">(</span><span class="n">UserProfileController</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="module-registration">Module Registration</h2>
-<p>You can also register an injector module. And Inject the service to the APIController constructor</p>
-<pre><code class="language-python">import logging
-import os
+<p>You can also register an injector module. And Inject the service to the APIController constructor
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
-from ninja import File
-from ninja.files import UploadedFile
-from ninja_extra import NinjaExtraAPI, APIController, route, router
+<span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">File</span>
+<span class="kn">from</span> <span class="nn">ninja.files</span> <span class="kn">import</span> <span class="n">UploadedFile</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
 
-from typing import Any, cast
-from django.conf import Settings
-from injector import inject, Module, Binder, singleton
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">cast</span>
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">Settings</span>
+<span class="kn">from</span> <span class="nn">injector</span> <span class="kn">import</span> <span class="n">inject</span><span class="p">,</span> <span class="n">Module</span><span class="p">,</span> <span class="n">Binder</span><span class="p">,</span> <span class="n">singleton</span>
 
-logger = logging.getLogger()
-
-
-class BucketFileUpload:
-    def upload_file_to_s3(self, file, bucket_name=None, acl=&quot;public-read&quot;, file_key=None):
-        raise NotImplementedError()
-
-    def upload_existing_file_to_s3(
-            self, filepath, file_key, bucket_name=None, acl=&quot;public-read&quot;, delete_file_afterwards=False,
-            clean_up_root_limit=None
-    ):
-        raise NotImplementedError()
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
 
 
-class InMemoryBucketFileUpload(BucketFileUpload):
-    @inject
-    def __init__(self, settings: Settings):
-        logger.info(f&quot;===== Using InMemoryBucketFileUpload =======&quot;)
-        self.settings = cast(Any, settings)
+<span class="k">class</span> <span class="nc">BucketFileUpload</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">upload_file_to_s3</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">bucket_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">acl</span><span class="o">=</span><span class="s2">&quot;public-read&quot;</span><span class="p">,</span> <span class="n">file_key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 
-    def upload_file_to_s3(self, file, bucket_name=None, acl=&quot;public-read&quot;, file_key=None):
-        logger.info(
-            f&quot;InMemoryBucketFileUpload ---- &quot;
-            f&quot;upload_file_to_s3(file={file.filename}, bucket_name{bucket_name}, acl={acl}, file_key={file_key})&quot;
-        )
-        if not file_key:
-            return os.path.join(self.settings.UPLOAD_FOLDER, file.filename)
-        return os.path.join(self.settings.BASE_DIR, file_key)
-
-    def upload_existing_file_to_s3(self, filepath, file_key, bucket_name=None, acl=&quot;public-read&quot;,
-                                   delete_file_afterwards=False, clean_up_root_limit=None):
-        logger.info(f&quot;InMemoryBucketFileUpload ---- upload_existing_file_to_s3(&quot;
-                    f&quot;filepath={filepath}, file_key={file_key}, &quot;
-                    f&quot;bucket_name={bucket_name}, acl={acl}, delete_file_afterwards={delete_file_afterwards})&quot;)
-        return filepath
+    <span class="k">def</span> <span class="nf">upload_existing_file_to_s3</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">file_key</span><span class="p">,</span> <span class="n">bucket_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">acl</span><span class="o">=</span><span class="s2">&quot;public-read&quot;</span><span class="p">,</span> <span class="n">delete_file_afterwards</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">clean_up_root_limit</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 
 
-class FileServiceModule(Module):
-    def configure(self, binder: Binder) -&gt; None:
-        binder.bind(BucketFileUpload, to=InMemoryBucketFileUpload, scope=singleton)
+<span class="k">class</span> <span class="nc">InMemoryBucketFileUpload</span><span class="p">(</span><span class="n">BucketFileUpload</span><span class="p">):</span>
+    <span class="nd">@inject</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">settings</span><span class="p">:</span> <span class="n">Settings</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;===== Using InMemoryBucketFileUpload =======&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Any</span><span class="p">,</span> <span class="n">settings</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">upload_file_to_s3</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">bucket_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">acl</span><span class="o">=</span><span class="s2">&quot;public-read&quot;</span><span class="p">,</span> <span class="n">file_key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;InMemoryBucketFileUpload ---- &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;upload_file_to_s3(file=</span><span class="si">{file.filename}</span><span class="s2">, bucket_name</span><span class="si">{bucket_name}</span><span class="s2">, acl=</span><span class="si">{acl}</span><span class="s2">, file_key=</span><span class="si">{file_key}</span><span class="s2">)&quot;</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">file_key</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">UPLOAD_FOLDER</span><span class="p">,</span> <span class="n">file</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="n">file_key</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">upload_existing_file_to_s3</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">file_key</span><span class="p">,</span> <span class="n">bucket_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">acl</span><span class="o">=</span><span class="s2">&quot;public-read&quot;</span><span class="p">,</span>
+                                   <span class="n">delete_file_afterwards</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">clean_up_root_limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;InMemoryBucketFileUpload ---- upload_existing_file_to_s3(&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;filepath=</span><span class="si">{filepath}</span><span class="s2">, file_key=</span><span class="si">{file_key}</span><span class="s2">, &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;bucket_name=</span><span class="si">{bucket_name}</span><span class="s2">, acl=</span><span class="si">{acl}</span><span class="s2">, delete_file_afterwards=</span><span class="si">{delete_file_afterwards}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">filepath</span>
+
+
+<span class="k">class</span> <span class="nc">FileServiceModule</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binder</span><span class="p">:</span> <span class="n">Binder</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">binder</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">BucketFileUpload</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="n">InMemoryBucketFileUpload</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="n">singleton</span><span class="p">)</span>
 
 
 
-@router('/user_profile')
-class UserProfileController(APIController):
-    def __init__(self, upload_service: BucketFileUpload):
-        self.upload_service = upload_service
+<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;/user_profile&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">UserProfileController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">upload_service</span><span class="p">:</span> <span class="n">BucketFileUpload</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upload_service</span> <span class="o">=</span> <span class="n">upload_service</span>
 
-    @route.post('/upload')
-    def upload_profile_pic(self, file: UploadedFile = File(...)):
-        self.upload_service.upload_file_to_s3(file=file)
-        assert isinstance(self.upload_service, InMemoryBucketFileUpload) # True
-        return {'message', 'uploaded successfully'}
+    <span class="nd">@route</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/upload&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">upload_profile_pic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">UploadedFile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upload_service</span><span class="o">.</span><span class="n">upload_file_to_s3</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">upload_service</span><span class="p">,</span> <span class="n">InMemoryBucketFileUpload</span><span class="p">)</span> <span class="c1"># True</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;uploaded successfully&#39;</span><span class="p">}</span>
 
 
-api = NinjaExtraAPI(title='Injector Test')
-api.register_controllers(UserProfileController)
-api.register_injector_modules(FileServiceModule)
-</code></pre>
+<span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Injector Test&#39;</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">register_controllers</span><span class="p">(</span><span class="n">UserProfileController</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">register_injector_modules</span><span class="p">(</span><span class="n">FileServiceModule</span><span class="p">)</span>
+</code></pre></div></p>
                 
               
               

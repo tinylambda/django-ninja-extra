@@ -567,41 +567,40 @@
 <p>This tutorial shows you how to use <strong>Django Ninja Extra</strong> with most of its features. 
 And most especially assumes you know how to use <strong>Django Ninja</strong></p>
 <h2 id="installation">Installation</h2>
-<pre><code>pip install django-ninja-extra
-</code></pre>
+<div class="highlight"><pre><span></span><code>pip install django-ninja-extra
+</code></pre></div>
 <p>After installation, add <code>ninja_extra</code> to your <code>INSTALLED_APPS</code></p>
-<pre><code class="language-Python">INSTALLED_APPS = [
-    ...,
-    'ninja_extra',
-]
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span><span class="p">,</span>
+    <span class="s1">&#39;ninja_extra&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</code></pre></div>
 <h2 id="create-a-django-project">Create a Django project</h2>
 <p>(If you already have an existing Django project, skip to the next step).</p>
 <p>Start a new Django project (or use an existing one).</p>
-<pre><code>django-admin startproject myproject
-</code></pre>
+<div class="highlight"><pre><span></span><code>django-admin startproject myproject
+</code></pre></div>
 <h2 id="first-steps">First steps</h2>
 <p>Let's create a module for our API.  Create an <strong>api.py</strong> file in the same directory location as <strong>urls.py</strong>:</p>
 <p><code>api.py</code></p>
-<pre><code class="language-Python">from ninja_extra import NinjaExtraAPI, route, APIController, router
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">router</span>
 
-api = NinjaExtraAPI()
+<span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">()</span>
 
-@api.get(&quot;/hello&quot;)
-def hello(request):
-    return &quot;Hello world&quot;
-
-</code></pre>
+<span class="nd">@api</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/hello&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;Hello world&quot;</span>
+</code></pre></div>
 <p>Now go to <strong>urls.py</strong> and add the following:</p>
-<pre><code class="language-Python">from django.contrib import admin
-from django.urls import path
-from .api import api
-
-urlpatterns = [
-    path(&quot;admin/&quot;, admin.site.urls),
-    path(&quot;api/&quot;, api.urls),
-]
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">.api</span> <span class="kn">import</span> <span class="n">api</span>
+</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;admin/&quot;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<span class="hll">    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;api/&quot;</span><span class="p">,</span> <span class="n">api</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+</span><span class="p">]</span>
+</code></pre></div>
 <h2 id="defining-operation-methods">Defining operation methods</h2>
 <p>"Operation" can be one of the HTTP "methods":</p>
 <ul>
@@ -617,36 +616,36 @@ The same operation functionalities are available on <code>route</code> class for
 <p><strong>Django Ninja Extra</strong> <code>route</code> function is an extra decorator for defining route function in your controller class.
 The <code>router</code> here is a short form of <code>ControllerRouter</code>, an Adapter class to Django-Ninja Router but without operational functions. 
 It gives you global control of all routes defined in an APIController class.</p>
-<pre><code class="language-Python">@router('', tags=['My Operations'], auth=NOT_SET, permissions=[])
-class MyAPIController(APIController):
-    @route.get(&quot;/path&quot;)
-    def get_operation(self):
-        ...
+<p><div class="highlight"><pre><span></span><code><span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;My Operations&#39;</span><span class="p">],</span> <span class="n">auth</span><span class="o">=</span><span class="n">NOT_SET</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
+<span class="k">class</span> <span class="nc">MyAPIController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
 
-    @route.post(&quot;/path&quot;)
-    def post_operation(self):
-        ...
+    <span class="nd">@route</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">post_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
 
-    @route.put(&quot;/path&quot;)
-    def put_operation(self):
-        ...
+    <span class="nd">@route</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">put_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
 
-    @route.delete(&quot;/path&quot;)
-    def delete_operation(self):
-        ...
+    <span class="nd">@route</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">delete_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
 
-    @route.patch(&quot;/path&quot;)
-    def patch_operation(self):
-        ...
+    <span class="nd">@route</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">patch_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
 
-    # If you need to handle multiple methods with a single function, you can use the `generic` method as shown above
-    @route.generic([&quot;POST&quot;, &quot;PATCH&quot;]) 
-    def mixed(request):
-        ...
+    <span class="c1"># If you need to handle multiple methods with a single function, you can use the `generic` method as shown above</span>
+    <span class="nd">@route</span><span class="o">.</span><span class="n">generic</span><span class="p">([</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;PATCH&quot;</span><span class="p">])</span> 
+    <span class="k">def</span> <span class="nf">mixed</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+        <span class="o">...</span>
 
-api.register_controllers(MyAPIController)
-</code></pre>
-<p>To have a complete Controller setup, the APIController must be decorated with <code>ControllerRouter</code> before it's been registered.</p>
+<span class="n">api</span><span class="o">.</span><span class="n">register_controllers</span><span class="p">(</span><span class="n">MyAPIController</span><span class="p">)</span>
+</code></pre></div>
+To have a complete Controller setup, the APIController must be decorated with <code>ControllerRouter</code> before it's been registered.</p>
                 
               
               

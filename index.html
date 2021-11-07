@@ -619,59 +619,59 @@
 <li><strong>Dependency Injection</strong>: Controller classes supports dependency injection with python <a href="https://injector.readthedocs.io/en/latest/"><strong>Injector</strong> </a> or <a href="https://github.com/blubber/django_injector"><strong>django_injector</strong></a></li>
 </ul>
 <h2 id="installation">Installation</h2>
-<pre><code>pip install django-ninja-extra
-</code></pre>
-<p>After installation, add <code>ninja_extra</code> to your <code>INSTALLED_APPS</code></p>
-<pre><code class="language-Python">INSTALLED_APPS = [
-    ...,
-    'ninja_extra',
-]
-</code></pre>
+<p><div class="highlight"><pre><span></span><code>pip install django-ninja-extra
+</code></pre></div>
+After installation, add <code>ninja_extra</code> to your <code>INSTALLED_APPS</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span><span class="p">,</span>
+    <span class="s1">&#39;ninja_extra&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</code></pre></div>
 <h2 id="quick-example">Quick Example</h2>
 <p>In your django project next to urls.py create new <code>api.py</code> file:</p>
-<pre><code class="language-Python">from ninja_extra import NinjaExtraAPI
-from ninja_extra import APIController, route, router
-from ninja_extra.permissions import AllowAny
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
+<span class="kn">from</span> <span class="nn">ninja_extra.permissions</span> <span class="kn">import</span> <span class="n">AllowAny</span>
 
-api = NinjaExtraAPI()
+<span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">()</span>
 
-# function based definition
-@api.get(&quot;/add&quot;, tags=['Math'])
-def add(request, a: int, b: int):
-    return {&quot;result&quot;: a + b}
+<span class="c1"># function based definition</span>
+<span class="nd">@api</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/add&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Math&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">}</span>
 
-#class based definition
-@router('', tags=['Math'], permissions=[AllowAny])
-class MyController(APIController):
+<span class="c1">#class based definition</span>
+<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Math&#39;</span><span class="p">],</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[</span><span class="n">AllowAny</span><span class="p">])</span>
+<span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
 
-    @route.get('/subtract',)
-    def subtract(self, a: int, b: int):
-        &quot;&quot;&quot;Subtracts a from b&quot;&quot;&quot;
-        return {&quot;result&quot;: a - b}
+    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/subtract&#39;</span><span class="p">,)</span>
+    <span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Subtracts a from b&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">}</span>
 
-    @route.get('/divide',)
-    def divide(self, a: int, b: int):
-        &quot;&quot;&quot;Divides a by b&quot;&quot;&quot;
-        return {&quot;result&quot;: a / b}
+    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/divide&#39;</span><span class="p">,)</span>
+    <span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Divides a by b&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">}</span>
 
-    @route.get('/multiple',)
-    def multiple(self, a: int, b: int):
-        &quot;&quot;&quot;Multiples a with b&quot;&quot;&quot;
-        return {&quot;result&quot;: a * b}
+    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/multiple&#39;</span><span class="p">,)</span>
+    <span class="k">def</span> <span class="nf">multiple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Multiples a with b&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">}</span>
 
-api.register_controllers(
-    MyController
-)
-</code></pre>
+<span class="n">api</span><span class="o">.</span><span class="n">register_controllers</span><span class="p">(</span>
+    <span class="n">MyController</span>
+<span class="p">)</span>
+</code></pre></div>
 <p>Now go to <code>urls.py</code> and add the following:</p>
-<pre><code class="language-Python">...
-from .api import api
-
-urlpatterns = [
-    path(&quot;admin/&quot;, admin.site.urls),
-    path(&quot;api/&quot;, api.urls),  # &lt;---------- !
-]
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">.api</span> <span class="kn">import</span> <span class="n">api</span>
+<span class="hll">
+</span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;admin/&quot;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;api/&quot;</span><span class="p">,</span> <span class="n">api</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>  <span class="c1"># &lt;---------- !</span>
+<span class="hll"><span class="p">]</span>
+</span></code></pre></div>
 <h3 id="interactive-api-docs">Interactive API docs</h3>
 <p>Now go to <a href="http://127.0.0.1:8000/api/docs" target="_blank">http://127.0.0.1:8000/api/docs </a></p>
 <p>You will see the automatic interactive API documentation (provided by <a href="https://github.com/swagger-api/swagger-ui" target="_blank">Swagger UI</a>):</p>

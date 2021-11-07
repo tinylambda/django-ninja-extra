@@ -534,31 +534,31 @@
                 <h2 id="pagination">Pagination</h2>
 <p><strong>Django Ninja Extra</strong> Pagination decorator gives you more pagination information, and it is very extensible.</p>
 <h2 id="usage">Usage</h2>
-<pre><code class="language-python">from ninja_extra.pagination import paginate, PageNumberPaginationExtra
-from ninja_extra import router, APIController, route, NinjaExtraAPI
-from ninja import ModelSchema
-from django.contrib.auth import get_user_model
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra.pagination</span> <span class="kn">import</span> <span class="n">paginate</span><span class="p">,</span> <span class="n">PageNumberPaginationExtra</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">router</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">NinjaExtraAPI</span>
+<span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">ModelSchema</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">get_user_model</span>
 
-user_model = get_user_model()
-
-
-class UserSchema(ModelSchema):
-    class Config:
-        model = user_model
-        model_fields = ['username', 'email']
+<span class="n">user_model</span> <span class="o">=</span> <span class="n">get_user_model</span><span class="p">()</span>
 
 
-@router('/users')
-class UserController(APIController):
-    @route.get('', response=PageNumberPaginationExtra.get_response_schema(schemas.UserSchema))
-    @paginate(PageNumberPaginationExtra, page_size=50)
-    def get_users(self):
-        return user_model.objects.all()
+<span class="k">class</span> <span class="nc">UserSchema</span><span class="p">(</span><span class="n">ModelSchema</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">user_model</span>
+        <span class="n">model_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">]</span>
 
 
-api = NinjaExtraAPI(title='Pagination Test')
-api.register_controllers(UserController)
-</code></pre>
+<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">UserController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="n">PageNumberPaginationExtra</span><span class="o">.</span><span class="n">get_response_schema</span><span class="p">(</span><span class="n">schemas</span><span class="o">.</span><span class="n">UserSchema</span><span class="p">))</span>
+    <span class="nd">@paginate</span><span class="p">(</span><span class="n">PageNumberPaginationExtra</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_users</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">user_model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Pagination Test&#39;</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">register_controllers</span><span class="p">(</span><span class="n">UserController</span><span class="p">)</span>
+</code></pre></div>
 <p><img alt="Preview" src="../../../docs/images/pagination.gif" /></p>
                 
               

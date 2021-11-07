@@ -706,9 +706,9 @@
 Although Django is not an MVC framework, but we can mimic the concept generally.</p>
 <p>The APIController is an abstract class model that allows you to expose some class instance functions as route functions.
 It also supports dependency injection with <strong>Injector</strong> or <strong>Django injector</strong>.</p>
-<pre><code class="language-python">class APIController(ABC, metaclass=APIControllerModelMetaclass):
-    ...
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">APIController</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">APIControllerModelMetaclass</span><span class="p">):</span>
+    <span class="o">...</span>
+</code></pre></div>
 <h2 id="model-properties">Model Properties</h2>
 <h3 id="permission_classes"><code>permission_classes</code></h3>
 <p>List of default permission classes defined in a controller <code>router</code></p>
