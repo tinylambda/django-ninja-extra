@@ -630,7 +630,7 @@ And most especially assumes you know how to use <strong>Django Ninja</strong></p
 The same operation functionalities are available on <code>route</code> class for APIController class</p>
 <p><strong>Django Ninja Extra</strong> <code>route</code> function is an extra decorator for defining route function in your controller class.</p>
 <p>The <code>router</code> here is a short form of <code>ControllerRouter</code>, an Adapter class to Django-Ninja <code>router</code> but without operational functions. 
-It provides global control of all routes defined in any APIController class.</p>
+It also provides global control of all routes defined in any APIController class.</p>
 <p><div class="highlight"><pre><span></span><code><span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;My Operations&#39;</span><span class="p">],</span> <span class="n">auth</span><span class="o">=</span><span class="n">NOT_SET</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
 <span class="k">class</span> <span class="nc">MyAPIController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
     <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
