@@ -262,14 +262,14 @@
       
       
         <label class="md-nav__link" for="__nav_2">
-          Tutorial / Reference
+          Usage
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Tutorial / Reference" data-md-level="1">
+      <nav class="md-nav" aria-label="Usage" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
-          Tutorial / Reference
+          Usage
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -280,7 +280,7 @@
   
     <li class="md-nav__item">
       <a href="../tutorial/" class="md-nav__link">
-        intro
+        Quick Tutorial
       </a>
     </li>
   
@@ -377,8 +377,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/versioning/" class="md-nav__link">
-        Versoning
+      <a href="../tutorial/settings/" class="md-nav__link">
+        Settings
       </a>
     </li>
   
@@ -407,6 +407,20 @@
     <li class="md-nav__item">
       <a href="../tutorial/custom_exception/" class="md-nav__link">
         Exception
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/versioning/" class="md-nav__link">
+        Versoning
       </a>
     </li>
   
@@ -478,6 +492,26 @@
     Module Registration
   </a>
   
+    <nav class="md-nav" aria-label="Module Registration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-module" class="md-nav__link">
+    Create a module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register-your-module" class="md-nav__link">
+    Register your Module
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -533,6 +567,26 @@
     Module Registration
   </a>
   
+    <nav class="md-nav" aria-label="Module Registration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-module" class="md-nav__link">
+    Create a module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register-your-module" class="md-nav__link">
+    Register your Module
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -587,13 +641,11 @@ Also, APIController injector works well with <a href="https://github.com/blubber
 <span class="n">api</span><span class="o">.</span><span class="n">register_controllers</span><span class="p">(</span><span class="n">UserProfileController</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="module-registration"><strong>Module Registration</strong></h2>
-<p>You can also register an injector module. And Inject the service to the APIController constructor
+<p>You can also register an injector module. And Inject the service to the APIController constructor</p>
+<h3 id="create-a-module">Create a module</h3>
+<p>create a <code>modules.py</code> with the code below in your django-project</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">os</span>
-
-<span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">File</span>
-<span class="kn">from</span> <span class="nn">ninja.files</span> <span class="kn">import</span> <span class="n">UploadedFile</span>
-<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
 
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">cast</span>
 <span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">Settings</span>
@@ -639,8 +691,12 @@ Also, APIController injector works well with <a href="https://github.com/blubber
 <span class="k">class</span> <span class="nc">FileServiceModule</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binder</span><span class="p">:</span> <span class="n">Binder</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">binder</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">BucketFileUpload</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="n">InMemoryBucketFileUpload</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="n">singleton</span><span class="p">)</span>
-
-
+</code></pre></div>
+<p>Create a <code>controller.py</code> with the code below
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">File</span>
+<span class="kn">from</span> <span class="nn">ninja.files</span> <span class="kn">import</span> <span class="n">UploadedFile</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
+<span class="kn">from</span> <span class="nn">.modules</span> <span class="kn">import</span> <span class="n">BucketFileUpload</span><span class="p">,</span> <span class="n">InMemoryBucketFileUpload</span>
 
 <span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;/user_profile&#39;</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">UserProfileController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
@@ -656,8 +712,27 @@ Also, APIController injector works well with <a href="https://github.com/blubber
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Injector Test&#39;</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">register_controllers</span><span class="p">(</span><span class="n">UserProfileController</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">register_injector_modules</span><span class="p">(</span><span class="n">FileServiceModule</span><span class="p">)</span>
 </code></pre></div></p>
+<h3 id="register-your-module">Register your Module</h3>
+<p>In your django <code>settings.py</code>, add your <code>FileServiceModule</code> module to the <code>NinjaExtra</code> settings</p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="n">MIDDLEWARE</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;django.middleware.security.SecurityMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.sessions.middleware.SessionMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.middleware.common.CommonMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.middleware.csrf.CsrfViewMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.auth.middleware.AuthenticationMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.messages.middleware.MessageMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.middleware.clickjacking.XFrameOptionsMiddleware&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">NinjaExtra</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;INJECTOR_MODULES&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;myproject.modules.FileServiceModule&#39;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+<span class="o">...</span>
+</code></pre></div>
                 
               
               

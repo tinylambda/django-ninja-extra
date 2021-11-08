@@ -11,14 +11,14 @@
       
       
       
-        <link rel="canonical" href="https://eadwincode.github.io/django-ninja-extra/tutorial/versioning/">
+        <link rel="canonical" href="https://eadwincode.github.io/django-ninja-extra/tutorial/settings/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
     
     
       
-        <title>Versoning - Django Ninja Extra</title>
+        <title>Settings - Django Ninja Extra</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#versioning" class="md-skip">
+        <a href="#settings" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Versoning
+              Settings
             
           </span>
         </div>
@@ -377,11 +377,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../settings/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Settings
       </a>
+      
     </li>
   
 
@@ -419,58 +429,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Versoning
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../versioning/" class="md-nav__link">
         Versoning
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#different-api-version-numbers" class="md-nav__link">
-    Different API version numbers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#different-business-logic" class="md-nav__link">
-    Different business logic
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -545,28 +508,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#different-api-version-numbers" class="md-nav__link">
-    Different API version numbers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#different-business-logic" class="md-nav__link">
-    Different business logic
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -578,81 +519,28 @@
               
                 
                 
-                <h1 id="versioning"><strong>Versioning</strong></h1>
-<h2 id="different-api-version-numbers"><strong>Different API version numbers</strong></h2>
-<p>With <strong>Django Ninja Extra</strong> it's very much easy to run multiple API versions from a single Django project.</p>
-<p>All you have to do is create two or more NinjaAPI instances with different <code>version</code> arguments:</p>
-<p><strong><code>api_v1.py</code></strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
-
-<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">MyV1Controller</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
-    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Hello from V1&#39;</span><span class="p">}</span>
-
-    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/example&#39;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">example</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Hello from V1 Example&#39;</span><span class="p">}</span>
+                <h1 id="settings"><strong>Settings</strong></h1>
+<p>Some default configuration of NinjaExtra which can be overridden by defining <code>NinjaExtra</code> keyword in django <code>settings.py</code>
+as shown below:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Django project settings.py</span>
 
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.0.0&#39;</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">register_controllers</span><span class="p">(</span><span class="n">MyV1Controller</span><span class="p">)</span>
+<span class="n">NINJA_EXTRA</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;PAGINATION_CLASS&#39;</span><span class="p">:</span><span class="s2">&quot;ninja_extra.pagination.PageNumberPaginationExtra&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;PAGINATION_PER_PAGE&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s1">&#39;INJECTOR_MODULES&#39;</span><span class="p">:</span> <span class="p">[],</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>api_<strong>v2</strong>.py:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
-<span class="kn">from</span> <span class="nn">.api_v1</span> <span class="kn">import</span> <span class="n">MyV1Controller</span>
-
-<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">MyV2Controller</span><span class="p">(</span><span class="n">MyV1Controller</span><span class="p">):</span>
-    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/example&#39;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">example</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Hello from V2 Example&#39;</span><span class="p">}</span>
-
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s1">&#39;2.0.0&#39;</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">register_controllers</span><span class="p">(</span><span class="n">MyV2Controller</span><span class="p">)</span>
-</code></pre></div>
-<p>and then in <strong>urls.py</strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="o">...</span>
-<span class="kn">from</span> <span class="nn">api_v1</span> <span class="kn">import</span> <span class="n">api</span> <span class="k">as</span> <span class="n">api_v1</span>
-<span class="kn">from</span> <span class="nn">api_v2</span> <span class="kn">import</span> <span class="n">api</span> <span class="k">as</span> <span class="n">api_v2</span>
-
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="o">...</span>
-<span class="hll">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/v1/&#39;</span><span class="p">,</span> <span class="n">api_v1</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
-</span><span class="hll">    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/v2/&#39;</span><span class="p">,</span> <span class="n">api_v2</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
-</span><span class="p">]</span>
-</code></pre></div>
-<p>Now you can go to different OpenAPI docs pages for each version:</p>
-<ul>
-<li>http://127.0.0.1/api/<strong>v1</strong>/docs</li>
-<li>http://127.0.0.1/api/<strong>v2</strong>/docs</li>
-</ul>
-<h2 id="different-business-logic"><strong>Different business logic</strong></h2>
-<p>In the same way, you can define a different API for different components or areas:</p>
-<div class="highlight"><pre><span></span><code><span class="o">...</span>
-
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="n">token_auth</span><span class="p">,</span> <span class="n">urls_namespace</span><span class="o">=</span><span class="s1">&#39;public_api&#39;</span><span class="p">)</span>
-<span class="o">...</span>
-
-<span class="n">api_private</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="n">session_auth</span><span class="p">,</span> <span class="n">urls_namespace</span><span class="o">=</span><span class="s1">&#39;private_api&#39;</span><span class="p">)</span>
-<span class="o">...</span>
-
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="o">...</span>
-    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/&#39;</span><span class="p">,</span> <span class="n">api</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
-    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;internal-api/&#39;</span><span class="p">,</span> <span class="n">api_private</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
-<span class="p">]</span>
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you use different <strong>NinjaExtraAPI</strong> instances, you need to define different <code>version</code>s or different <code>urls_namespace</code>s.
-This is the same with <strong>NinjaAPI</strong> instances</p>
-</div>
+<h1 id="pagination_class"><code>PAGINATION_CLASS</code></h1>
+<p>This defines the default paginator class used by <code>paginate</code> decorator 
+function when a paginator class is not defined.
+default: <code>ninja_extra.pagination.LimitOffsetPagination</code></p>
+<h1 id="pagination_per_page"><code>PAGINATION_PER_PAGE</code></h1>
+<p>This defines the default page size in paginator class used by <code>paginate</code> decorator function when a page size is not defined.
+default: <code>100</code></p>
+<h1 id="injector_modules"><code>INJECTOR_MODULES</code></h1>
+<p>These are list of strings that defines injector <code>module</code> paths to be 
+bound to Injector instance at app start up. default: <code>[]</code></p>
                 
               
               
@@ -672,7 +560,7 @@ This is the same with <strong>NinjaAPI</strong> instances</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../custom_exception/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Exception" rel="prev">
+        <a href="../body_request/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Body Request" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -681,20 +569,20 @@ This is the same with <strong>NinjaAPI</strong> instances</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Exception
+              Body Request
             </div>
           </div>
         </a>
       
       
         
-        <a href="../testing/" class="md-footer__link md-footer__link--next" aria-label="Next: Testing" rel="next">
+        <a href="../pagination/" class="md-footer__link md-footer__link--next" aria-label="Next: Pagination" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Testing
+              Pagination
             </div>
           </div>
           <div class="md-footer__button md-icon">
