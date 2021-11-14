@@ -594,19 +594,12 @@
                 
                 <h1 id="apicontroller-permissions"><strong>APIController Permissions</strong></h1>
 <p>The concept of these permission system came from Django <a href="https://www.django-rest-framework.org/api-guide/permissions/">DRF</a>.</p>
-<p>Permission checks are always run at the very start of the route function, 
-before any other code is allowed to proceed. 
-Permission checks will typically use the authentication information 
-in the <code>request.user</code> and <code>request.auth</code> properties to determine 
-if the incoming request should be permitted.</p>
-<p>Permissions are used to grant or deny access for 
-different classes of users to different parts of the API.</p>
-<p>The simplest style of permission would be to allow access 
-to any authenticated user, and deny access to any unauthenticated user. 
+<p>Permission checks are always run at the very start of the route function, before any other code is allowed to proceed. 
+Permission checks will typically use the authentication information in the <code>request.user</code> and <code>request.auth</code> properties to determine if the incoming request should be permitted.</p>
+<p>Permissions are used to grant or deny access for different classes of users to different parts of the API.</p>
+<p>The simplest style of permission would be to allow access to any authenticated user, and deny access to any unauthenticated user. 
 This corresponds to the <code>IsAuthenticated</code> class in <strong>Django Ninja Extra</strong>.</p>
-<p>A slightly less strict style of permission would be to 
-allow full access to authenticated users, 
-but allow read-only access to unauthenticated users. 
+<p>A slightly less strict style of permission would be to allow full access to authenticated users, but allow read-only access to unauthenticated users. 
 This corresponds to the <code>IsAuthenticatedOrReadOnly</code> class in <strong>Django Ninja Extra</strong>.</p>
 <h3 id="limitations-of-object-level-permissions"><strong>Limitations of object level permissions</strong></h3>
 <p>During route function call, we can only <code>has_permission</code> in permissions list are called automatic. 
