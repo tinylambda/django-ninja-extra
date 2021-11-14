@@ -603,13 +603,17 @@
                 
                 
                 <h1 id="dependency-injection">Dependency Injection</h1>
-<p><strong>Django Ninja Extra</strong> APIController support dependency injection.</p>
-<p>Dependencies to a APIController can be resolved at constructor level automatically with using <code>@inject</code> decorator.
-This is possible with python <a href="https://injector.readthedocs.io/en/latest/"><strong>Injector</strong> </a> library. 
-Also, APIController injector works well with <a href="https://github.com/blubber/django_injector"><strong>django_injector</strong></a></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Read more <a href="https://injector.readthedocs.io/en/latest/"><strong>Python Injector</strong> </a></p>
+<p><strong>Django Ninja Extra</strong> APIController support dependency injection is one of the core features of the library.</p>
+<p>Having the ability to inject services to the controller is as simple as
+overriding your controller constructor and defining a parameter with a type. APIController will take care of the rest.
+This is possible using python <a href="https://injector.readthedocs.io/en/latest/"><strong>Injector</strong> </a> library. </p>
+<p>During APIController class initialization, injector instance is used to resolve the APIController instance, and parameters with annotations will be resolved automatically.</p>
+<p>If you have <a href="https://github.com/blubber/django_injector"><strong>django_injector</strong></a> in your project, <strong>Django-Ninja-Extra</strong> supports it as well. 
+There is no extra configuration</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You are not only allowed to override your APIController constructor with <strong>parameter</strong> that don't have <strong>annotations</strong>
+Read more <a href="https://injector.readthedocs.io/en/latest/"><strong>Python Injector</strong> </a></p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">File</span>
 <span class="kn">from</span> <span class="nn">ninja.files</span> <span class="kn">import</span> <span class="n">UploadedFile</span>
