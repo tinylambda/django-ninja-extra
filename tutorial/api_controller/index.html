@@ -424,6 +424,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -731,6 +738,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -803,6 +817,58 @@ It also supports dependency injection with <strong>Injector</strong> or <strong>
 <p>Checks object permissions. This is not automated. However, when called, it triggers all <code>permission_classes</code> <code>has_object_permission</code> function, just like in DRF</p>
 </li>
 </ul>
+<h2 id="usage">Usage</h2>
+<p>Let's create an APIController to manage Django user model</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">ModelSchema</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span><span class="p">,</span> <span class="n">exceptions</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">ninja_extra.controllers.response</span> <span class="kn">import</span> <span class="n">Detail</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">get_user_model</span>
+
+
+<span class="k">class</span> <span class="nc">UserSchema</span><span class="p">(</span><span class="n">ModelSchema</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">get_user_model</span><span class="p">()</span>
+        <span class="n">model_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;first_name&#39;</span><span class="p">]</span>
+
+
+<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">UsersController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+    <span class="n">user_model</span> <span class="o">=</span> <span class="n">get_user_model</span><span class="p">()</span>
+
+    <span class="nd">@route</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
+        <span class="c1"># just simulating created user</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Id</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">())</span>
+
+    <span class="nd">@route</span><span class="o">.</span><span class="n">generic</span><span class="p">(</span><span class="s1">&#39;/{int:user_id}&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="s1">&#39;patch&#39;</span><span class="p">],</span> <span class="n">response</span><span class="o">=</span><span class="n">UserSchema</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">update_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Django Ninja will serialize Django ORM model to schema provided as `response`&quot;&quot;&quot;</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">user</span>
+        <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">NotFound</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;User with id: `</span><span class="si">{user_id}</span><span class="s1">` not found&#39;</span><span class="p">)</span>
+
+    <span class="nd">@route</span><span class="o">.</span><span class="n">generic</span><span class="p">(</span><span class="s1">&#39;/{int:user_id}&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="s1">&#39;patch&#39;</span><span class="p">],</span> <span class="n">response</span><span class="o">=</span><span class="n">Detail</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_204_NO_CONTENT</span><span class="p">))</span>
+    <span class="k">def</span> <span class="nf">delete_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+            <span class="n">user</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_response</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_204_NO_CONTENT</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">NotFound</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;User with id: `</span><span class="si">{user_id}</span><span class="s1">` not found&#39;</span><span class="p">)</span>
+
+    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="n">List</span><span class="p">[</span><span class="n">UserSchema</span><span class="p">])</span>
+    <span class="k">def</span> <span class="nf">list_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/</span><span class="si">{user_id}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="n">UserSchema</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_user_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_model</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">user</span>
+        <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">NotFound</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;User with id: `</span><span class="si">{user_id}</span><span class="s1">` not found&#39;</span><span class="p">)</span>
+</code></pre></div>
                 
               
               

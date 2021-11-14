@@ -520,10 +520,10 @@
                 
                 
                 <h1 id="custom-exception"><strong>Custom Exception</strong></h1>
-<p>If you are coming from DRF, then you are use to <code>APIException</code> class.</p>
-<p><strong>Django-Ninja-Extra</strong> provides something similar and a has created
-a <code>handler</code> for it used by Django-Ninja to manager custom errors.</p>
-<p><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra.exceptions</span> <span class="kn">import</span> <span class="n">APIException</span>
+<p><strong>Django-Ninja</strong> provide a flask way of handling custom exceptions by registering its exception handlers.</p>
+<p><strong>Django-Ninja-Extra</strong> creates an <code>APIException</code> class which provides similar functionalities, for those use to DRF <code>APIException</code>.</p>
+<p>For Example: 
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra.exceptions</span> <span class="kn">import</span> <span class="n">APIException</span>
 <span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">status</span>
 <span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">router</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">NinjaExtraAPI</span>
 

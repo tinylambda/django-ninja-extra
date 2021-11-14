@@ -520,10 +520,12 @@
                 
                 
                 <h1 id="testing-apicontroller"><strong>Testing APIController</strong></h1>
-<p><strong>Django Ninja Extra</strong> has a TestClient that provides seamless testing of APIController classes.</p>
-<p>There are two test clients
-- <code>TestClient</code>: for synchronous route functions
-- <code>TestClientAsync</code>: for asynchronous route functions</p>
+<p><strong>Django Ninja Extra</strong> has a TestClient that provides seamless testing of APIController classes with <code>pytest</code></p>
+<p>There are two test clients</p>
+<ul>
+<li><code>TestClient</code>: for synchronous route functions</li>
+<li><code>TestClientAsync</code>: for asynchronous route functions</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra.testing</span> <span class="kn">import</span> <span class="n">TestClient</span>
 <span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
 <span class="kn">from</span> <span class="nn">ninja_extra.permissions</span> <span class="kn">import</span> <span class="n">AllowAny</span>
@@ -549,6 +551,7 @@
     <span class="k">def</span> <span class="nf">multiple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Multiples a with b&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">}</span>
+
 
 <span class="k">class</span> <span class="nc">TestMyMathController</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">test_add_endpoint_works</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

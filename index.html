@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#requirements" class="md-skip">
+        <a href="#django-ninja-extra" class="md-skip">
           Skip to content
         </a>
       
@@ -244,6 +244,8 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           Index
@@ -258,6 +260,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -274,8 +278,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    Key Features
+  <a href="#django-ninja-benchmark" class="md-nav__link">
+    Django-Ninja Benchmark
   </a>
   
 </li>
@@ -288,11 +292,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-example" class="md-nav__link">
-    Quick Example
+  <a href="#usage" class="md-nav__link">
+    Usage
   </a>
   
-    <nav class="md-nav" aria-label="Quick Example">
+    <nav class="md-nav" aria-label="Usage">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -570,6 +574,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -585,8 +591,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    Key Features
+  <a href="#django-ninja-benchmark" class="md-nav__link">
+    Django-Ninja Benchmark
   </a>
   
 </li>
@@ -599,11 +605,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-example" class="md-nav__link">
-    Quick Example
+  <a href="#usage" class="md-nav__link">
+    Usage
   </a>
   
-    <nav class="md-nav" aria-label="Quick Example">
+    <nav class="md-nav" aria-label="Usage">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -638,14 +644,25 @@
               
                 
                 
-                  <h1>Index</h1>
-                
                 <p><img alt="Test" src="https://github.com/eadwinCode/django-ninja-extra/workflows/Test/badge.svg" />
 <a href="https://badge.fury.io/py/django-ninja-extra"><img alt="PyPI version" src="https://badge.fury.io/py/django-ninja-extra.svg" /></a>
 <a href="https://pypi.python.org/pypi/django-ninja-extra"><img alt="PyPI version" src="https://img.shields.io/pypi/v/django-ninja-extra.svg" /></a>
 <a href="https://pypi.python.org/pypi/django-ninja-extra"><img alt="PyPI version" src="https://img.shields.io/pypi/pyversions/django-ninja-extra.svg" /></a>
 <a href="https://pypi.python.org/pypi/django-ninja-extra"><img alt="PyPI version" src="https://img.shields.io/pypi/djversions/django-ninja-extra.svg" /></a></p>
-<p><strong>Django Ninja Extra</strong> is a utility library built on top of <a href="https://django-ninja.rest-framework.com"><strong>Django Ninja</strong></a> for building and setting up APIs at incredible speed and performance. </p>
+<h1 id="django-ninja-extra">Django Ninja Extra</h1>
+<p><strong>Django Ninja Extra</strong> is a utility library built on top of <strong>Django Ninja</strong> for building and setting up APIs at incredible speed and performance. It brings alot batteries to <a href="https://django-ninja.rest-framework.com"><strong>Django Ninja</strong></a> which are also extensible for customization.</p>
+<p><strong>Key features:</strong></p>
+<p>All <strong>Django-Ninja</strong> features :
+- <strong>Easy</strong>: Designed to be easy to use and intuitive.
+- <strong>FAST execution</strong>: Very high performance thanks to <strong><a href="https://pydantic-docs.helpmanual.io" target="_blank">Pydantic</a></strong> and <strong><a href="/async-support/">async support</a></strong>.
+- <strong>Fast to code</strong>: Type hints and automatic docs lets you focus only on business logic.
+- <strong>Standards-based</strong>: Based on the open standards for APIs: <strong>OpenAPI</strong> (previously known as Swagger) and <strong>JSON Schema</strong>.
+- <strong>Django friendly</strong>: (obviously) has good integration with the Django core and ORM.</p>
+<p>Plus <strong>Extra</strong>:
+- <strong>Class Based</strong>: Design your APIs in a class based fashion.
+- <strong>Permissions</strong>: Protect endpoint(s) at ease with defined permissions and authorizations at route level or controller level.
+- <strong>Dependency Injection</strong>: Controller classes supports dependency injection with python <a href="https://injector.readthedocs.io/en/latest/"><strong>Injector</strong> </a> or <a href="https://github.com/blubber/django_injector"><strong>django_injector</strong></a>. Giving you the ability to inject API dependable services at the controller class constructor and utilizing them where needed</p>
+<hr />
 <h3 id="requirements">Requirements</h3>
 <ul>
 <li>Python &gt;= 3.6</li>
@@ -653,14 +670,10 @@
 <li>pydantic &gt;= 1.6 </li>
 <li>Django-Ninja &gt;= 0.16.1</li>
 </ul>
-<hr />
-<h3 id="key-features">Key Features</h3>
-<p>All Django-Ninja features are fully supported plus others below:</p>
-<ul>
-<li><strong>Class Based</strong>: Design your APIs in a class based fashion.</li>
-<li><strong>Permissions</strong>: Protect endpoint(s) at ease, specific or general</li>
-<li><strong>Dependency Injection</strong>: Controller classes supports dependency injection with python <a href="https://injector.readthedocs.io/en/latest/"><strong>Injector</strong> </a> or <a href="https://github.com/blubber/django_injector"><strong>django_injector</strong></a></li>
-</ul>
+<h2 id="django-ninja-benchmark">Django-Ninja Benchmark</h2>
+<p>Both Django-Ninja and Django-Ninja-Extra shares the same benchmark because <strong>Django-Ninja-Extra</strong> operational core is <strong>Django-Ninja</strong>
+<img alt="Django Ninja REST Framework" src="images/benchmark.png" /></p>
+<p>Full documentation, <a href="https://eadwincode.github.io/django-ninja-extra/">visit</a>.</p>
 <h2 id="installation">Installation</h2>
 <p><div class="highlight"><pre><span></span><code>pip install django-ninja-extra
 </code></pre></div>
@@ -670,11 +683,9 @@ After installation, add <code>ninja_extra</code> to your <code>INSTALLED_APPS</c
     <span class="s1">&#39;ninja_extra&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </code></pre></div>
-<h2 id="quick-example">Quick Example</h2>
+<h2 id="usage">Usage</h2>
 <p>In your django project next to urls.py create new <code>api.py</code> file:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span>
-<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
-<span class="kn">from</span> <span class="nn">ninja_extra.permissions</span> <span class="kn">import</span> <span class="n">AllowAny</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">()</span>
 
@@ -684,8 +695,8 @@ After installation, add <code>ninja_extra</code> to your <code>INSTALLED_APPS</c
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">}</span>
 
 <span class="c1">#class based definition</span>
-<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Math&#39;</span><span class="p">],</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[</span><span class="n">AllowAny</span><span class="p">])</span>
-<span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Math&#39;</span><span class="p">],</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
+<span class="k">class</span> <span class="nc">MathAPI</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
 
     <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/subtract&#39;</span><span class="p">,)</span>
     <span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
@@ -703,7 +714,7 @@ After installation, add <code>ninja_extra</code> to your <code>INSTALLED_APPS</c
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">}</span>
 
 <span class="n">api</span><span class="o">.</span><span class="n">register_controllers</span><span class="p">(</span>
-    <span class="n">MyController</span>
+    <span class="n">MathAPI</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>Now go to <code>urls.py</code> and add the following:</p>
@@ -716,7 +727,7 @@ After installation, add <code>ninja_extra</code> to your <code>INSTALLED_APPS</c
 <span class="p">]</span>
 </code></pre></div>
 <h3 id="interactive-api-docs">Interactive API docs</h3>
-<p>Now go to <a href="http://127.0.0.1:8000/api/docs" target="_blank">http://127.0.0.1:8000/api/docs </a></p>
+<p>Now go to <a href="http://127.0.0.1:8000/api/docs" target="_blank">http://127.0.0.1:8000/api/docs</a></p>
 <p>You will see the automatic interactive API documentation (provided by <a href="https://github.com/swagger-api/swagger-ui" target="_blank">Swagger UI</a>):</p>
 <p><img alt="Swagger UI" src="images/ui_swagger_preview_readme.gif" /></p>
 <h2 id="what-next">What next?</h2>
