@@ -251,27 +251,25 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
       
         <label class="md-nav__link" for="__nav_2">
-          Usage
+          APIController
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Usage" data-md-level="1">
+      <nav class="md-nav" aria-label="APIController" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
-          Usage
+          APIController
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -281,8 +279,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        Quick Tutorial
+      <a href="../../api_controller/" class="md-nav__link">
+        Index
       </a>
     </li>
   
@@ -295,21 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api_controller/" class="md-nav__link">
-        APIController
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../api_controller_route/" class="md-nav__link">
+      <a href="../../api_controller/api_controller_route/" class="md-nav__link">
         Controller Routes
       </a>
     </li>
@@ -323,7 +307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api_controller_permission/" class="md-nav__link">
+      <a href="../../api_controller/api_controller_permission/" class="md-nav__link">
         Controller Permissions
       </a>
     </li>
@@ -337,8 +321,58 @@
   
   
     <li class="md-nav__item">
-      <a href="../api_controller_router/" class="md-nav__link">
+      <a href="../../api_controller/api_controller_router/" class="md-nav__link">
         Controller Router
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Usage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Usage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Quick Tutorial
       </a>
     </li>
   
@@ -419,8 +453,50 @@
   
   
     <li class="md-nav__item">
-      <a href="../settings/" class="md-nav__link">
-        Settings
+      <a href="../query/" class="md-nav__link">
+        Query Request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../path/" class="md-nav__link">
+        Path Parameter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../form/" class="md-nav__link">
+        Form Request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/" class="md-nav__link">
+        Schema
       </a>
     </li>
   
@@ -448,7 +524,7 @@
   
     <li class="md-nav__item">
       <a href="../custom_exception/" class="md-nav__link">
-        Exception
+        Error Handling
       </a>
     </li>
   
@@ -485,6 +561,21 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/" class="md-nav__link">
+        Settings
+      </a>
     </li>
   
 
@@ -567,11 +658,8 @@
                 <h1 id="request-body"><strong>Request Body</strong></h1>
 <p>Request bodies are typically used with “create” and “update” operations (POST, PUT, PATCH).
 For example, when creating a resource using POST or PUT, the request body usually contains the representation of the resource to be created.</p>
-<p>To declare a <strong>request body</strong>, you need to use <strong>Django Ninja <code>Schema</code></strong>.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Read more on django-ninja <strong><a href="https://django-ninja.rest-framework.com/tutorial/body/">body request</a></strong></p>
-</div>
+<p>To declare a <strong>request body</strong>, you need to use <strong>Django Ninja <code>Schema</code></strong> or any Pydantic Schema that suits your need.</p>
+<p>I recommend <a href="https://pypi.org/project/ninja-schema/">Ninja-Schema</a></p>
 <h2 id="create-your-data-model"><strong>Create your data model</strong></h2>
 <p>Then you declare your data model as a class that inherits from <code>Schema</code>.</p>
 <p>Use standard Python types for all the attributes:</p>
@@ -588,7 +676,7 @@ For example, when creating a resource using POST or PUT, the request body usuall
 
 <span class="k">class</span> <span class="nc">ItemController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
     <span class="nd">@route</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">item</span>
 </code></pre></div>
 <p>Note: if you use <strong><code>None</code></strong> as the default value for an attribute, it will become optional in the request body.
@@ -642,13 +730,13 @@ For example, this model above declares a JSON "<code>object</code>" (or Python <
       
       
         
-        <a href="../settings/" class="md-footer__link md-footer__link--next" aria-label="Next: Settings" rel="next">
+        <a href="../query/" class="md-footer__link md-footer__link--next" aria-label="Next: Query Request" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Settings
+              Query Request
             </div>
           </div>
           <div class="md-footer__button md-icon">

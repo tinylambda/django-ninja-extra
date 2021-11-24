@@ -251,6 +251,96 @@
 
   
   
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          APIController
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="APIController" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          APIController
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_controller/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_controller/api_controller_route/" class="md-nav__link">
+        Controller Routes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_controller/api_controller_permission/" class="md-nav__link">
+        Controller Permissions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_controller/api_controller_router/" class="md-nav__link">
+        Controller Router
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -258,18 +348,18 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
       
-        <label class="md-nav__link" for="__nav_2">
+        <label class="md-nav__link" for="__nav_3">
           Usage
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Usage" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Usage
         </label>
@@ -356,62 +446,6 @@
   
   
     <li class="md-nav__item">
-      <a href="api_controller/" class="md-nav__link">
-        APIController
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="api_controller_route/" class="md-nav__link">
-        Controller Routes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="api_controller_permission/" class="md-nav__link">
-        Controller Permissions
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="api_controller_router/" class="md-nav__link">
-        Controller Router
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="authentication/" class="md-nav__link">
         Authentication
       </a>
@@ -440,8 +474,50 @@
   
   
     <li class="md-nav__item">
-      <a href="settings/" class="md-nav__link">
-        Settings
+      <a href="query/" class="md-nav__link">
+        Query Request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="path/" class="md-nav__link">
+        Path Parameter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="form/" class="md-nav__link">
+        Form Request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema/" class="md-nav__link">
+        Schema
       </a>
     </li>
   
@@ -469,7 +545,7 @@
   
     <li class="md-nav__item">
       <a href="custom_exception/" class="md-nav__link">
-        Exception
+        Error Handling
       </a>
     </li>
   
@@ -506,6 +582,21 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings/" class="md-nav__link">
+        Settings
+      </a>
     </li>
   
 
@@ -609,6 +700,10 @@
                 <h1 id="tutorial-reference"><strong>Tutorial / Reference</strong></h1>
 <p>This tutorial shows you how to use <strong>Django Ninja Extra</strong> with most of its features. 
 And most especially assumes you know how to use <strong>Django Ninja</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A lot of content here is drawn from Django-Ninja. So a lot would make sense if you understand the Django-Ninja framework first.</p>
+</div>
 <h2 id="installation"><strong>Installation</strong></h2>
 <div class="highlight"><pre><span></span><code>pip install django-ninja-extra
 </code></pre></div>
@@ -630,6 +725,7 @@ And most especially assumes you know how to use <strong>Django Ninja</strong></p
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">()</span>
 
+<span class="c1"># function definition using Django-Ninja default router</span>
 <span class="nd">@api</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/hello&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="k">return</span> <span class="s2">&quot;Hello world&quot;</span>
@@ -654,12 +750,11 @@ And most especially assumes you know how to use <strong>Django Ninja</strong></p
 <li>PATCH</li>
 <li>... and more.</li>
 </ul>
-<p>These are Django-Ninja defined operations on the <code>api</code> or Django-Ninja <code>router</code>. 
-The same operation functionalities are available on <code>route</code> class for APIController class</p>
-<p><strong>Django Ninja Extra</strong> <code>route</code> function is an extra decorator for defining route function in your controller class.</p>
-<p>The <code>router</code> here is a short form of <code>ControllerRouter</code>, an Adapter class to Django-Ninja <code>router</code> but without operational functions. 
-It also provides global control of all routes defined in any APIController class.</p>
-<p><div class="highlight"><pre><span></span><code><span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;My Operations&#39;</span><span class="p">],</span> <span class="n">auth</span><span class="o">=</span><span class="n">NOT_SET</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
+<p>These are Django-Ninja defined operations on the API or Django-Ninja router. 
+The same operation is exposed to APIControllers with the <code>route</code> class. 
+The <code>route</code> class is an extra decorator that converts APIController instance methods to route function or endpoint.</p>
+<p>On the other hand, the <code>router</code> here is a short form of the <code>ControllerRouter</code> class,  an adapter class, which is an that only adapts APIController to the Django-Ninja router. It also provides global control of all routes defined in any APIController class.
+<div class="highlight"><pre><span></span><code><span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;My Operations&#39;</span><span class="p">],</span> <span class="n">auth</span><span class="o">=</span><span class="n">NOT_SET</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
 <span class="k">class</span> <span class="nc">MyAPIController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
     <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">get_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -708,7 +803,7 @@ To have a complete Controller setup, the APIController must be decorated with <c
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Index" rel="prev">
+        <a href="../api_controller/api_controller_router/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Controller Router" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -717,20 +812,20 @@ To have a complete Controller setup, the APIController must be decorated with <c
               <span class="md-footer__direction">
                 Previous
               </span>
-              Index
+              Controller Router
             </div>
           </div>
         </a>
       
       
         
-        <a href="api_controller/" class="md-footer__link md-footer__link--next" aria-label="Next: APIController" rel="next">
+        <a href="authentication/" class="md-footer__link md-footer__link--next" aria-label="Next: Authentication" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              APIController
+              Authentication
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -18,7 +18,7 @@
     
     
       
-        <title>Exception - Django Ninja Extra</title>
+        <title>Error Handling - Django Ninja Extra</title>
       
     
     
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exception
+              Error Handling
             
           </span>
         </div>
@@ -251,27 +251,25 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
       
         <label class="md-nav__link" for="__nav_2">
-          Usage
+          APIController
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Usage" data-md-level="1">
+      <nav class="md-nav" aria-label="APIController" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
-          Usage
+          APIController
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -281,8 +279,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        Quick Tutorial
+      <a href="../../api_controller/" class="md-nav__link">
+        Index
       </a>
     </li>
   
@@ -295,21 +293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api_controller/" class="md-nav__link">
-        APIController
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../api_controller_route/" class="md-nav__link">
+      <a href="../../api_controller/api_controller_route/" class="md-nav__link">
         Controller Routes
       </a>
     </li>
@@ -323,7 +307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api_controller_permission/" class="md-nav__link">
+      <a href="../../api_controller/api_controller_permission/" class="md-nav__link">
         Controller Permissions
       </a>
     </li>
@@ -337,8 +321,58 @@
   
   
     <li class="md-nav__item">
-      <a href="../api_controller_router/" class="md-nav__link">
+      <a href="../../api_controller/api_controller_router/" class="md-nav__link">
         Controller Router
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Usage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Usage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Usage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Quick Tutorial
       </a>
     </li>
   
@@ -379,8 +413,50 @@
   
   
     <li class="md-nav__item">
-      <a href="../settings/" class="md-nav__link">
-        Settings
+      <a href="../query/" class="md-nav__link">
+        Query Request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../path/" class="md-nav__link">
+        Path Parameter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../form/" class="md-nav__link">
+        Form Request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/" class="md-nav__link">
+        Schema
       </a>
     </li>
   
@@ -417,7 +493,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Exception
+        Error Handling
       </a>
       
     </li>
@@ -455,6 +531,21 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/" class="md-nav__link">
+        Settings
+      </a>
     </li>
   
 
@@ -520,8 +611,8 @@
                 
                 
                 <h1 id="custom-exception"><strong>Custom Exception</strong></h1>
-<p><strong>Django-Ninja</strong> provide a flask way of handling custom exceptions by registering its exception handlers.</p>
-<p><strong>Django-Ninja-Extra</strong> creates an <code>APIException</code> class which provides similar functionalities, for those use to DRF <code>APIException</code>.</p>
+<p><strong>Django-Ninja</strong> provides an intuitive way of handling custom exceptions by registering a function(handler) against an Exception type, just like it's done in a Flask app.</p>
+<p>So in that sense, <strong>Django-Ninja-Extra</strong> has an <code>APIException</code> exception type which provides similar functionalities, for those use to DRF <code>APIException</code>.</p>
 <p>For Example: 
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra.exceptions</span> <span class="kn">import</span> <span class="n">APIException</span>
 <span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">status</span>
