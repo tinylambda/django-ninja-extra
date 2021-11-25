@@ -399,8 +399,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../body_request/" class="md-nav__link">
-        Body Request
+      <a href="../path/" class="md-nav__link">
+        Path Parameter
       </a>
     </li>
   
@@ -427,8 +427,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../path/" class="md-nav__link">
-        Path Parameter
+      <a href="../body_request/" class="md-nav__link">
+        Body Request
       </a>
     </li>
   
@@ -615,21 +615,6 @@
   
 
     
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ninja_schema/" class="md-nav__link">
-        Ninja Schema
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -698,9 +683,11 @@
                 <h1 id="pagination"><strong>Pagination</strong></h1>
 <p><strong>Django Ninja Extra</strong> provides an intuitive pagination model using <code>paginate</code> decoration from the Django-Ninja-Extra pagination module. It expects a List or Queryset from as a route function result.</p>
 <h2 id="properties"><strong>Properties</strong></h2>
-<p><code>def paginate(func_or_pgn_class: Any = NOT_SET, **paginator_params: Any) -&gt; Callable[..., Any]:</code>
-- func_or_pgn_class: Defines a route function or a Pagination Class. default: <code>ninja_extra.pagination.LimitOffsetPagination</code>
-- paginator_params: extra parameters for initialising Pagination Class</p>
+<p><code>def paginate(func_or_pgn_class: Any = NOT_SET, **paginator_params: Any) -&gt; Callable[..., Any]:</code></p>
+<ul>
+<li>func_or_pgn_class: Defines a route function or a Pagination Class. default: <code>ninja_extra.pagination.LimitOffsetPagination</code></li>
+<li>paginator_params: extra parameters for initialising Pagination Class</li>
+</ul>
 <h3 id="changing-default-pagination-class">Changing Default Pagination Class</h3>
 <p>To change the default pagination class, you need to add a <code>NINJA_EXTRA</code> variable in <code>settings.py</code> with a key <code>PAGINATION_CLASS</code> and value defining path to pagination class
 <div class="highlight"><pre><span></span><code><span class="c1"># Django project settings.py</span>

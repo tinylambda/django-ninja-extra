@@ -399,8 +399,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../body_request/" class="md-nav__link">
-        Body Request
+      <a href="../path/" class="md-nav__link">
+        Path Parameter
       </a>
     </li>
   
@@ -427,8 +427,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../path/" class="md-nav__link">
-        Path Parameter
+      <a href="../body_request/" class="md-nav__link">
+        Body Request
       </a>
     </li>
   
@@ -565,21 +565,6 @@
   
 
     
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ninja_schema/" class="md-nav__link">
-        Ninja Schema
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -615,8 +600,8 @@
 <p>So in that sense, <strong>Django-Ninja-Extra</strong> has an <code>APIException</code> exception type which provides similar functionalities, for those use to DRF <code>APIException</code>.</p>
 <p>For Example: 
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra.exceptions</span> <span class="kn">import</span> <span class="n">APIException</span>
-<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">status</span>
-<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">router</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">NinjaExtraAPI</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">router</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">constants</span>
 
 
 <span class="k">class</span> <span class="nc">CustomAPIException</span><span class="p">(</span><span class="n">APIException</span><span class="p">):</span>
@@ -624,7 +609,7 @@
     <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;UnAuthorized&#39;</span>
 
 
-<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;exception&quot;</span><span class="p">])</span>
+<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;My Operations&#39;</span><span class="p">],</span> <span class="n">auth</span><span class="o">=</span><span class="n">constants</span><span class="o">.</span><span class="n">NOT_SET</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
 <span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
     <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/exception&#39;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">custom_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

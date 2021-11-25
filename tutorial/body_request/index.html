@@ -397,6 +397,34 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../path/" class="md-nav__link">
+        Path Parameter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../query/" class="md-nav__link">
+        Query Request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -442,34 +470,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../query/" class="md-nav__link">
-        Query Request
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../path/" class="md-nav__link">
-        Path Parameter
-      </a>
     </li>
   
 
@@ -595,21 +595,6 @@
   
 
     
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ninja_schema/" class="md-nav__link">
-        Ninja Schema
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -663,8 +648,8 @@ For example, when creating a resource using POST or PUT, the request body usuall
 <h2 id="create-your-data-model"><strong>Create your data model</strong></h2>
 <p>Then you declare your data model as a class that inherits from <code>Schema</code>.</p>
 <p>Use standard Python types for all the attributes:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">Schema</span>
-<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">Schema</span><span class="p">,</span> <span class="n">constants</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
 
 
 <span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">Schema</span><span class="p">):</span>
@@ -674,7 +659,8 @@ For example, when creating a resource using POST or PUT, the request body usuall
     <span class="n">quantity</span><span class="p">:</span> <span class="nb">int</span>
 
 
-<span class="k">class</span> <span class="nc">ItemController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;My Operations&#39;</span><span class="p">],</span> <span class="n">auth</span><span class="o">=</span><span class="n">constants</span><span class="o">.</span><span class="n">NOT_SET</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
+<span class="k">class</span> <span class="nc">MyAPIController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
     <span class="nd">@route</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">item</span>
@@ -714,7 +700,7 @@ For example, this model above declares a JSON "<code>object</code>" (or Python <
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../authentication/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Authentication" rel="prev">
+        <a href="../query/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Query Request" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -723,20 +709,20 @@ For example, this model above declares a JSON "<code>object</code>" (or Python <
               <span class="md-footer__direction">
                 Previous
               </span>
-              Authentication
+              Query Request
             </div>
           </div>
         </a>
       
       
         
-        <a href="../query/" class="md-footer__link md-footer__link--next" aria-label="Next: Query Request" rel="next">
+        <a href="../form/" class="md-footer__link md-footer__link--next" aria-label="Next: Form Request" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Query Request
+              Form Request
             </div>
           </div>
           <div class="md-footer__button md-icon">

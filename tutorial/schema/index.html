@@ -70,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#ninja-schema" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -394,8 +399,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../body_request/" class="md-nav__link">
-        Body Request
+      <a href="../path/" class="md-nav__link">
+        Path Parameter
       </a>
     </li>
   
@@ -422,8 +427,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../path/" class="md-nav__link">
-        Path Parameter
+      <a href="../body_request/" class="md-nav__link">
+        Body Request
       </a>
     </li>
   
@@ -457,9 +462,37 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Schema
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Schema
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ninja-schema" class="md-nav__link">
+    Ninja Schema
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -558,27 +591,42 @@
   
 
     
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ninja_schema/" class="md-nav__link">
-        Ninja Schema
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ninja-schema" class="md-nav__link">
+    Ninja Schema
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           <div class="md-content" data-md-component="content">
@@ -588,7 +636,21 @@
                 
                   <h1>Schema</h1>
                 
-                <p>In Progress</p>
+                <p>Django-Ninja Pydantic integration is one of the best features of Django-Ninja. 
+With Pydantic, you can validate the inflow and outflow of data from your API, and It's very fast. Making a partial replacement of DRF serializers</p>
+<p>But if you want complete DRF Serializer replacement then <strong>Ninja-Schema</strong> is what you need.</p>
+<h2 id="ninja-schema">Ninja Schema</h2>
+<p>Ninja Schema converts your Django ORM models to Pydantic schemas with more Pydantic features supported.</p>
+<p><strong>Inspired by</strong>: <a href="https://django-ninja.rest-framework.com/">django-ninja</a> and <a href="https://jordaneremieff.github.io/djantic/">djantic</a></p>
+<p><strong>Key features:</strong></p>
+<ul>
+<li><strong>Custom Field Support</strong>: Ninja Schema converts django model to native pydantic types which gives you quick field validation out of the box. eg Enums, email, IPAddress, URLs, JSON, etc</li>
+<li><strong>Field Validator</strong>: Fields can be validated with <strong>model_validator</strong> just like pydantic <strong><a href="https://pydantic-docs.helpmanual.io/usage/validators/">validator</a></strong> or <strong><a href="https://pydantic-docs.helpmanual.io/usage/validators/">root_validator</a></strong>. </li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Visit <a href="https://pypi.org/project/ninja-schema/">Ninja Schema</a> for More information</p>
+</div>
                 
               
               

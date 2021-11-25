@@ -70,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#form-data-as-params" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -394,8 +399,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../body_request/" class="md-nav__link">
-        Body Request
+      <a href="../path/" class="md-nav__link">
+        Path Parameter
       </a>
     </li>
   
@@ -422,8 +427,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../path/" class="md-nav__link">
-        Path Parameter
+      <a href="../body_request/" class="md-nav__link">
+        Body Request
       </a>
     </li>
   
@@ -443,9 +448,37 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Form Request
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Form Request
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#form-data-as-params" class="md-nav__link">
+    Form Data as Params
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -558,27 +591,42 @@
   
 
     
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ninja_schema/" class="md-nav__link">
-        Ninja Schema
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#form-data-as-params" class="md-nav__link">
+    Form Data as Params
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           <div class="md-content" data-md-component="content">
@@ -588,7 +636,28 @@
                 
                   <h1>Form Request</h1>
                 
-                <p>In Progress</p>
+                <p>If you are not sure how to make a form post request like <code>application/x-www-form-urlencode</code> or <code>multipart/form-data</code> in django-ninja-extra, then this guide would be useful for you.
+Django-Ninja already covers most of the use cases <a href="https://django-ninja.rest-framework.com/tutorial/form-params/">here</a>, but I will give you a quick summary here.</p>
+<h3 id="form-data-as-params">Form Data as Params</h3>
+<p><div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">Form</span><span class="p">,</span> <span class="n">constants</span>
+</span><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
+
+
+<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;My Operations&#39;</span><span class="p">],</span> <span class="n">auth</span><span class="o">=</span><span class="n">constants</span><span class="o">.</span><span class="n">NOT_SET</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
+<span class="hll"><span class="k">class</span> <span class="nc">MyAPIController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+</span>    <span class="nd">@route</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Form</span><span class="p">(</span><span class="o">...</span><span class="p">),</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Form</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;*****&#39;</span><span class="p">}</span>
+</code></pre></div>
+Two things to note here:</p>
+<ul>
+<li>You need to import <code>Form</code> from <code>ninja</code> module</li>
+<li>Use <code>Form</code> as default value for your parameter</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>For more information on this, visit <a href="https://django-ninja.rest-framework.com/tutorial/form-params/">Django-Ninja Form tutorial</a></p>
+</div>
                 
               
               
@@ -608,7 +677,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../path/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Path Parameter" rel="prev">
+        <a href="../body_request/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Body Request" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -617,7 +686,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Path Parameter
+              Body Request
             </div>
           </div>
         </a>
