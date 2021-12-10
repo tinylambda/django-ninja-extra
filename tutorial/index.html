@@ -315,20 +315,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../api_controller/api_controller_router/" class="md-nav__link">
-        Controller Router
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -706,7 +692,7 @@ And most especially assumes you know how to use <strong>Django Ninja</strong></p
 <h2 id="first-steps"><strong>First steps</strong></h2>
 <p>Let's create a module for our API.  Create an <strong>api.py</strong> file in the same directory location as <strong>urls.py</strong>:</p>
 <p><code>api.py</code></p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">router</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">()</span>
 
@@ -739,30 +725,36 @@ And most especially assumes you know how to use <strong>Django Ninja</strong></p
 The same operation is exposed to APIControllers with the <code>route</code> class. 
 The <code>route</code> class is an extra decorator that converts APIController instance methods to route function or endpoint.</p>
 <p>On the other hand, the <code>router</code> here is a short form of the <code>ControllerRouter</code> class,  an adapter class, which is an that only adapts APIController to the Django-Ninja router. It also provides global control of all routes defined in any APIController class.
-<div class="highlight"><pre><span></span><code><span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;My Operations&#39;</span><span class="p">],</span> <span class="n">auth</span><span class="o">=</span><span class="n">NOT_SET</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
-<span class="k">class</span> <span class="nc">MyAPIController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
-    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">api_controller</span><span class="p">,</span> 
+    <span class="n">http_get</span><span class="p">,</span> <span class="n">http_post</span><span class="p">,</span> <span class="n">http_put</span><span class="p">,</span> <span class="n">http_delete</span><span class="p">,</span> <span class="n">http_patch</span><span class="p">,</span> <span class="n">http_generic</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">ninja.constants</span> <span class="kn">import</span> <span class="n">NOT_SET</span>
+
+<span class="nd">@api_controller</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;My Operations&#39;</span><span class="p">],</span> <span class="n">auth</span><span class="o">=</span><span class="n">NOT_SET</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
+<span class="k">class</span> <span class="nc">MyAPIController</span><span class="p">:</span>
+    <span class="nd">@http_get</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">get_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="o">...</span>
 
-    <span class="nd">@route</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
+    <span class="nd">@http_post</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">post_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="o">...</span>
 
-    <span class="nd">@route</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
+    <span class="nd">@http_put</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">put_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="o">...</span>
 
-    <span class="nd">@route</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
+    <span class="nd">@http_delete</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">delete_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="o">...</span>
 
-    <span class="nd">@route</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
+    <span class="nd">@http_patch</span><span class="p">(</span><span class="s2">&quot;/path&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">patch_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="o">...</span>
 
     <span class="c1"># If you need to handle multiple methods with a single function, you can use the `generic` method as shown above</span>
-    <span class="nd">@route</span><span class="o">.</span><span class="n">generic</span><span class="p">([</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;PATCH&quot;</span><span class="p">])</span> 
+    <span class="nd">@http_generic</span><span class="p">([</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;PATCH&quot;</span><span class="p">])</span> 
     <span class="k">def</span> <span class="nf">mixed</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
         <span class="o">...</span>
 
@@ -788,7 +780,7 @@ To have a complete Controller setup, the APIController must be decorated with <c
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../api_controller/api_controller_router/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Controller Router" rel="prev">
+        <a href="../api_controller/api_controller_permission/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Controller Permissions" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -797,7 +789,7 @@ To have a complete Controller setup, the APIController must be decorated with <c
               <span class="md-footer__direction">
                 Previous
               </span>
-              Controller Router
+              Controller Permissions
             </div>
           </div>
         </a>

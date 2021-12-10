@@ -315,20 +315,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api_controller/api_controller_router/" class="md-nav__link">
-        Controller Router
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -703,7 +689,7 @@
 <span class="kn">from</span> <span class="nn">ninja_extra.pagination</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">paginate</span><span class="p">,</span> <span class="n">PageNumberPaginationExtra</span><span class="p">,</span> <span class="n">PaginatedResponseSchema</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">router</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">NinjaExtraAPI</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">api_controller</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">NinjaExtraAPI</span>
 <span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">ModelSchema</span>
 <span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">get_user_model</span>
 
@@ -716,8 +702,8 @@
         <span class="n">model_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">]</span>
 
 
-<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">UserController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+<span class="nd">@api_controller</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">UserController</span><span class="p">:</span>
     <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="n">PaginatedResponseSchema</span><span class="p">[</span><span class="n">UserSchema</span><span class="p">])</span>
     <span class="nd">@paginate</span><span class="p">(</span><span class="n">PageNumberPaginationExtra</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">get_users</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

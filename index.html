@@ -403,20 +403,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="api_controller/api_controller_router/" class="md-nav__link">
-        Controller Router
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -783,7 +769,7 @@ After installation, add <code>ninja_extra</code> to your <code>INSTALLED_APPS</c
 </code></pre></div>
 <h2 id="usage">Usage</h2>
 <p>In your django project next to urls.py create new <code>api.py</code> file:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">api_controller</span><span class="p">,</span> <span class="n">http_get</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">NinjaExtraAPI</span><span class="p">()</span>
 
@@ -793,20 +779,20 @@ After installation, add <code>ninja_extra</code> to your <code>INSTALLED_APPS</c
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">}</span>
 
 <span class="c1">#class based definition</span>
-<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Math&#39;</span><span class="p">],</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
-<span class="k">class</span> <span class="nc">MathAPI</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+<span class="nd">@api_controller</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Math&#39;</span><span class="p">],</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
+<span class="k">class</span> <span class="nc">MathAPI</span><span class="p">:</span>
 
-    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/subtract&#39;</span><span class="p">,)</span>
+    <span class="nd">@http_get</span><span class="p">(</span><span class="s1">&#39;/subtract&#39;</span><span class="p">,)</span>
     <span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Subtracts a from b&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">}</span>
 
-    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/divide&#39;</span><span class="p">,)</span>
+    <span class="nd">@http_get</span><span class="p">(</span><span class="s1">&#39;/divide&#39;</span><span class="p">,)</span>
     <span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Divides a by b&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">}</span>
 
-    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/multiple&#39;</span><span class="p">,)</span>
+    <span class="nd">@http_get</span><span class="p">(</span><span class="s1">&#39;/multiple&#39;</span><span class="p">,)</span>
     <span class="k">def</span> <span class="nf">multiple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Multiples a with b&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">}</span>

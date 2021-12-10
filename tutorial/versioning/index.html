@@ -315,20 +315,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api_controller/api_controller_router/" class="md-nav__link">
-        Controller Router
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -659,10 +645,10 @@
 <p>With <strong>Django Ninja Extra</strong>, it's very much easy to run multiple API versions from a single Django project.</p>
 <p>All you have to do is create two or more NinjaAPI instances with different <code>version</code> arguments:</p>
 <p><strong><code>api_v1.py</code></strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">api_controller</span>
 
-<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">MyV1Controller</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+<span class="nd">@api_controller</span>
+<span class="k">class</span> <span class="nc">MyV1Controller</span><span class="p">:</span>
     <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/hello&#39;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Hello from V1&#39;</span><span class="p">}</span>
@@ -677,10 +663,10 @@
 </code></pre></div>
 <p>api_<strong>v2</strong>.py:
 You can reuse your APIControllers and make modifications to specific routes.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">api_controller</span>
 <span class="kn">from</span> <span class="nn">.api_v1</span> <span class="kn">import</span> <span class="n">MyV1Controller</span>
 
-<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nd">@api_controller</span>
 <span class="k">class</span> <span class="nc">MyV2Controller</span><span class="p">(</span><span class="n">MyV1Controller</span><span class="p">):</span>
     <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/example&#39;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">example</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

@@ -315,20 +315,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../api_controller/api_controller_router/" class="md-nav__link">
-        Controller Router
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -690,7 +676,7 @@ overriding your controller constructor and defining a parameter with its type an
 </div>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">File</span>
 <span class="kn">from</span> <span class="nn">ninja.files</span> <span class="kn">import</span> <span class="n">UploadedFile</span>
-<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">api_controller</span><span class="p">,</span> <span class="n">http_post</span>
 
 <span class="k">class</span> <span class="nc">BucketFileUploadService</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">upload_file_to_s3</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">bucket_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">acl</span><span class="o">=</span><span class="s2">&quot;public-read&quot;</span><span class="p">,</span> <span class="n">file_key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -703,12 +689,12 @@ overriding your controller constructor and defining a parameter with its type an
         <span class="k">pass</span>
 
 
-<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;/user_profile&#39;</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">UserProfileController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+<span class="nd">@api_controller</span><span class="p">(</span><span class="s1">&#39;/user_profile&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">UserProfileController</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">upload_service</span><span class="p">:</span> <span class="n">BucketFileUploadService</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">upload_service</span> <span class="o">=</span> <span class="n">upload_service</span>
 
-    <span class="nd">@route</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/upload&#39;</span><span class="p">)</span>
+    <span class="nd">@http_post</span><span class="p">(</span><span class="s1">&#39;/upload&#39;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">upload_profile_pic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">UploadedFile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">upload_service</span><span class="o">.</span><span class="n">upload_file_to_s3</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;uploaded successfully&#39;</span><span class="p">}</span>
@@ -783,15 +769,15 @@ overriding your controller constructor and defining a parameter with its type an
 <p>Create a <code>controller.py</code> with the code below
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">File</span>
 <span class="kn">from</span> <span class="nn">ninja.files</span> <span class="kn">import</span> <span class="n">UploadedFile</span>
-<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">NinjaExtraAPI</span><span class="p">,</span> <span class="n">api_controller</span><span class="p">,</span> <span class="n">http_post</span>
 <span class="kn">from</span> <span class="nn">.modules</span> <span class="kn">import</span> <span class="n">BucketFileUpload</span><span class="p">,</span> <span class="n">InMemoryBucketFileUpload</span>
 
-<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;/user_profile&#39;</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">UserProfileController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+<span class="nd">@api_controller</span><span class="p">(</span><span class="s1">&#39;/user_profile&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">UserProfileController</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">upload_service</span><span class="p">:</span> <span class="n">BucketFileUpload</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">upload_service</span> <span class="o">=</span> <span class="n">upload_service</span>
 
-    <span class="nd">@route</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/upload&#39;</span><span class="p">)</span>
+    <span class="nd">@http_post</span><span class="p">(</span><span class="s1">&#39;/upload&#39;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">upload_profile_pic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">UploadedFile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">upload_service</span><span class="o">.</span><span class="n">upload_file_to_s3</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">file</span><span class="p">)</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">upload_service</span><span class="p">,</span> <span class="n">InMemoryBucketFileUpload</span><span class="p">)</span> <span class="c1"># True</span>

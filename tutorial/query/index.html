@@ -310,20 +310,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api_controller/api_controller_router/" class="md-nav__link">
-        Controller Router
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -576,11 +562,11 @@
                 <p>Django-Ninja assumes function parameters that are not among path parameters as query parameters.</p>
 <p>For example:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja</span> <span class="kn">import</span> <span class="n">constants</span>
-<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">router</span>
+<span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">api_controller</span><span class="p">,</span> <span class="n">route</span>
 
 
-<span class="nd">@router</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;My Operations&#39;</span><span class="p">],</span> <span class="n">auth</span><span class="o">=</span><span class="n">constants</span><span class="o">.</span><span class="n">NOT_SET</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
-<span class="k">class</span> <span class="nc">MyAPIController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
+<span class="nd">@api_controller</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;My Operations&#39;</span><span class="p">],</span> <span class="n">auth</span><span class="o">=</span><span class="n">constants</span><span class="o">.</span><span class="n">NOT_SET</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[])</span>
+<span class="k">class</span> <span class="nc">MyAPIController</span><span class="p">:</span>
 <span class="hll">    <span class="n">weapons</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ninjato&quot;</span><span class="p">,</span> <span class="s2">&quot;Shuriken&quot;</span><span class="p">,</span> <span class="s2">&quot;Katana&quot;</span><span class="p">,</span> <span class="s2">&quot;Kama&quot;</span><span class="p">,</span> <span class="s2">&quot;Kunai&quot;</span><span class="p">,</span> <span class="s2">&quot;Naginata&quot;</span><span class="p">,</span> <span class="s2">&quot;Yari&quot;</span><span class="p">]</span>
 </span>
     <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/weapons&quot;</span><span class="p">)</span>

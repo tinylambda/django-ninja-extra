@@ -371,20 +371,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../api_controller_router/" class="md-nav__link">
-        Controller Router
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -687,15 +673,15 @@ But since we don't have the object, we can only invoke <code>has_object_permissi
 </code></pre></div>
 
 <p>Example</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">permissions</span><span class="p">,</span> <span class="n">APIController</span><span class="p">,</span> <span class="n">router</span><span class="p">,</span> <span class="n">route</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">ninja_extra</span> <span class="kn">import</span> <span class="n">permissions</span><span class="p">,</span> <span class="n">api_controller</span><span class="p">,</span> <span class="n">http_get</span>
 
 <span class="k">class</span> <span class="nc">ReadOnly</span><span class="p">(</span><span class="n">permissions</span><span class="o">.</span><span class="n">BasePermission</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">has_permission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">view</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="ow">in</span> <span class="n">permissions</span><span class="o">.</span><span class="n">SAFE_METHODS</span>
 
-<span class="nd">@router</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[</span><span class="n">permissions</span><span class="o">.</span><span class="n">IsAuthenticated</span> <span class="o">|</span> <span class="n">ReadOnly</span><span class="p">])</span>
-<span class="k">class</span> <span class="nc">PermissionController</span><span class="p">(</span><span class="n">APIController</span><span class="p">):</span>
-    <span class="nd">@route</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/must_be_authenticated&#39;</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[</span><span class="n">permissions</span><span class="o">.</span><span class="n">IsAuthenticated</span><span class="p">])</span>
+<span class="nd">@api_controller</span><span class="p">(</span><span class="n">permissions</span><span class="o">=</span><span class="p">[</span><span class="n">permissions</span><span class="o">.</span><span class="n">IsAuthenticated</span> <span class="o">|</span> <span class="n">ReadOnly</span><span class="p">])</span>
+<span class="k">class</span> <span class="nc">PermissionController</span><span class="p">:</span>
+    <span class="nd">@http_get</span><span class="p">(</span><span class="s1">&#39;/must_be_authenticated&#39;</span><span class="p">,</span> <span class="n">permissions</span><span class="o">=</span><span class="p">[</span><span class="n">permissions</span><span class="o">.</span><span class="n">IsAuthenticated</span><span class="p">])</span>
     <span class="k">def</span> <span class="nf">must_be_authenticated</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">says</span><span class="o">=</span><span class="n">word</span><span class="p">)</span>
 </code></pre></div>
@@ -740,13 +726,13 @@ But since we don't have the object, we can only invoke <code>has_object_permissi
       
       
         
-        <a href="../api_controller_router/" class="md-footer__link md-footer__link--next" aria-label="Next: Controller Router" rel="next">
+        <a href="../../tutorial/" class="md-footer__link md-footer__link--next" aria-label="Next: Quick Tutorial" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Controller Router
+              Quick Tutorial
             </div>
           </div>
           <div class="md-footer__button md-icon">
